@@ -1,7 +1,7 @@
 'use client';
 
+import { usePathname } from "@/i18n/navigation";
 import { ActionIcon, Drawer } from '@mantine/core';
-import { usePathname } from 'next/navigation';
 import { ReactNode, useEffect } from 'react';
 import { MdMenu } from 'react-icons/md';
 import useBoolean from '../../../hooks/useBoolean';

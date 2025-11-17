@@ -1,15 +1,23 @@
-import { BsHouseDoor } from "react-icons/bs";
-import { FiMoreHorizontal } from "react-icons/fi";
+import { BsHouseDoor, BsLaptopFill } from "react-icons/bs";
+import { FcTimeline } from "react-icons/fc";
+import PATHS from "./paths";
 
 export const sidebarLinks: LinkType[] = [
   {
-    href: "/",
-    label: "Home",
+    href: PATHS.home.index,
+    label: "home",
     icon: <BsHouseDoor />,
-  },
-  {
-    href: "/explore",
-    label: "Explore",
-    icon: <FiMoreHorizontal />,
+    children: [
+      {
+        href: PATHS.home.services,
+        label: "ourServices",
+        icon: <BsLaptopFill />,
+      },
+      {
+        href: PATHS.home.howWeWorks,
+        label: "howWeWorks",
+        icon: <FcTimeline />,
+      },
+    ]
   },
 ];

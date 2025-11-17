@@ -1,0 +1,13 @@
+.x-navLink {
+    border-radius: 9999px;
+    text-transform: uppercase;
+    width: 100%;
+    font-weight: 600;
+}
+
+@media (max-width: 640px) {
+    .x-navLink {
+        width: fit-content !important;
+        border-radius: 9999px;
+    }
+}

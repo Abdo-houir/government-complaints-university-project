@@ -1,5 +1,5 @@
-import { ReactNode } from 'react'
-import AppMantineProvider from './mantine/AppMantineProvider'
+import { ReactNode } from 'react';
+import AppMantineProvider from './mantine/AppMantineProvider';
 
 type Props = {
     children: ReactNode
@@ -8,9 +8,9 @@ type Props = {
 const AppProvider = ({ children }: Props) => {
     return (
         <>
-            <AppMantineProvider>
-                {children}
-            </AppMantineProvider>
+                <AppMantineProvider>
+                    {children}
+                </AppMantineProvider>
         </>
     )
 }

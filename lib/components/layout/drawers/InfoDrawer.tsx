@@ -10,6 +10,7 @@ interface InfoDrawerProps {
   position?: "top" | "bottom";
   onClose?: () => void;
   loading?: boolean;
+  maxWidth?: number | string
 }
 
 const InfoDrawer: React.FC<InfoDrawerProps> = ({
@@ -19,6 +20,7 @@ const InfoDrawer: React.FC<InfoDrawerProps> = ({
   position = 'bottom',
   onClose,
   loading = false,
+  maxWidth = "65vw"
 }) => {
   return (
     <Drawer
@@ -30,16 +32,20 @@ const InfoDrawer: React.FC<InfoDrawerProps> = ({
       withOverlay
       styles={{
         content: {
-          maxWidth: '65vw',
+          maxWidth: maxWidth,
           marginInline: 'auto',
           borderTopLeftRadius: position === "bottom" ? '1rem' : "0rem",
           borderTopRightRadius: position === "bottom" ? '1rem' : "0rem",
           borderBottomLeftRadius: position === "bottom" ? '0rem' : "1rem",
           borderBottomRightRadius: position === "bottom" ? '0rem' : "1rem",
         },
+        body: {
+          backgroundColor: "var(--color-background-primary)"
+        },
         header: {
           width: '100%',
           display: 'block',
+          backgroundColor: "var(--color-background-primary)"
         },
       }}
       title={

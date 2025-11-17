@@ -1,0 +1,21 @@
+{
+    "locales": {
+        "ar": "arabic",
+        "en": "english"
+    },
+    "theme": {
+        "title": "select theme mode",
+        "auto": {
+            "label": "system preference",
+            "shotLabel": "auto"
+        },
+        "dark": {
+            "label": "dark mode",
+            "shotLabel": "dark"
+        },
+        "light": {
+            "label": "light mode",
+            "shotLabel": "light"
+        }
+    }
+}

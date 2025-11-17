@@ -1,9 +1,10 @@
 "use client";
 
+import { usePathname } from "@/i18n/navigation";
 import { List, NavLink, NavLinkProps, Popover, Tooltip } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
+import { useTranslations } from "next-intl";
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { ReactNode } from 'react';
 
 type Props = {
@@ -17,10 +18,11 @@ type Props = {
 const RenderSidebarLinks = ({ items, isIconOnlyProp, invertIcon, navLinkProps, full = false }: Props) => {
     const pathname = usePathname();
     const isIconOnly = useMediaQuery(isIconOnlyProp || "none");
+    const t = useTranslations("navigation");
 
     const renderLinks = (items: LinkType[], full: boolean = false): ReactNode =>
         items.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive = (pathname === link.href) || (window.location.hash === link.href);
 
             // ✅ Collapsed sidebar (icon-only)
             if (isIconOnly && !full) {
@@ -29,7 +31,7 @@ const RenderSidebarLinks = ({ items, isIconOnlyProp, invertIcon, navLinkProps, f
                     return (
                         <Popover key={link.href} position="right-start" withArrow shadow="md">
                             <Popover.Target>
-                                <Tooltip label={link.label}>
+                                <Tooltip label={t(link.label)}>
                                     <NavLink
                                         label={link.icon}
                                         active={isActive}
@@ -48,7 +50,7 @@ const RenderSidebarLinks = ({ items, isIconOnlyProp, invertIcon, navLinkProps, f
 
                 // simple link → tooltip only
                 return (
-                    <Tooltip label={link.label} key={link.href}>
+                    <Tooltip label={t(link.label)} key={link.href}>
                         <NavLink
                             component={Link}
                             href={link.href}
@@ -64,7 +66,7 @@ const RenderSidebarLinks = ({ items, isIconOnlyProp, invertIcon, navLinkProps, f
                 return (
                     <NavLink
                         key={link.href}
-                        label={link.label}
+                        label={t(link.label)}
                         leftSection={!invertIcon ? link.icon : undefined}
                         rightSection={invertIcon ? link.icon : undefined}
                         // childrenOffset={28}
@@ -84,7 +86,7 @@ const RenderSidebarLinks = ({ items, isIconOnlyProp, invertIcon, navLinkProps, f
                     key={link.href}
                     component={Link}
                     href={link.href}
-                    label={link.label}
+                    label={t(link.label)}
                     leftSection={!invertIcon ? link.icon : undefined}
                     rightSection={invertIcon ? link.icon : undefined}
                     active={isActive}

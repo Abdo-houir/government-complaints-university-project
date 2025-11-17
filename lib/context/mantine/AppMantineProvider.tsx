@@ -1,7 +1,6 @@
-import { createTheme, MantineProvider } from '@mantine/core';
+import { createTheme, DirectionProvider, MantineProvider } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
 import { ReactNode } from 'react';
-import activeClasses from './active.module.css';
 
 
 type Props = {
@@ -12,17 +11,30 @@ const theme = createTheme({
     focusRing: 'auto',
     white: '#F6F6F6',
     black: '#000000',
-    primaryColor: 'indigo',
+    primaryColor: 'emerald',
     autoContrast: true,
-    luminanceThreshold: 0.3,
-    activeClassName: activeClasses.cozy,
-    focusClassName: activeClasses.focus,
+    // activeClassName: activeClasses.cozy,
+    // focusClassName: activeClasses.focus,
     breakpoints: {
         sm: "640px",
         md: '768px',
         lg: '1024px',
         xl: '1280px',
-      },
+    },
+    colors: {
+        emerald: [
+            "#E6F7F4", // 50 - very light tint
+            "#CFF0EB", // 100 - soft pastel
+            "#A8E2D9", // 200 - light
+            "#7FD3C6", // 300 - mid-light
+            "#55C4B3", // 400 - base
+            "#3AA99A", // 500 - slightly darker
+            "#2F8C80", // 600 - medium dark
+            "#257066", // 700 - dark
+            "#1B544D", // 800 - very dark
+            "#123833"  // 900 - deep shade
+        ]
+    },
     components: {
         PasswordInput: {
             defaultProps: {
@@ -34,7 +46,7 @@ const theme = createTheme({
         Input: {
             styles: {
                 input: { backgroundColor: "var(--color-background-primary)" },
-                label: {color: "var(--color-primary-main)"}
+                label: { color: "var(--color-primary-main)" }
             },
         },
         ScrollArea: {
@@ -132,15 +144,16 @@ const theme = createTheme({
             },
         },
     },
-
 });
 
 const AppMantineProvider = ({ children }: Props) => {
     return (
-        <MantineProvider theme={theme} defaultColorScheme='auto'>
-            {children}
-            <Notifications />
-        </MantineProvider>
+        <DirectionProvider detectDirection >
+            <MantineProvider theme={theme} defaultColorScheme='auto'>
+                {children}
+                <Notifications />
+            </MantineProvider>
+        </DirectionProvider>
     )
 }
 

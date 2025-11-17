@@ -1,11 +1,13 @@
 import { sidebarLinks } from '@/config-nav';
 import { breakpoints } from '@/constants';
-import { AppShell, AppShellAside, AppShellHeader, AppShellMain, AppShellNavbar, AppShellSection, Flex, Text } from '@mantine/core';
+import PATHS from '@/paths';
+import { AppShell, AppShellAside, AppShellHeader, AppShellMain, AppShellNavbar, AppShellSection, Flex, Group } from '@mantine/core';
 import { ReactNode } from 'react';
-import { BsTwitterX } from 'react-icons/bs';
+import LocaleSelector from '../../action/LocaleSelector';
 import ThemeSelector from '../../action/ThemeSelector';
+import Logo from '../../identity/Logo';
 import SidebarNavigation from '../../navigation/SidebarNavigation/SidebarNavigation';
-
+import "./x-layout.css";
 type props = {
     children: ReactNode
 }
@@ -13,7 +15,7 @@ const XLayout = ({ children }: props) => {
 
     return (
         <AppShell
-            header={{ height: 0 }}
+            header={{ height: 65 }}
             navbar={{
                 width: { base: 50, sm: 225, xl: 400 },
                 breakpoint: 'null',
@@ -33,32 +35,29 @@ const XLayout = ({ children }: props) => {
                 main: { backgroundColor: "var(--color-background-primary)" },
             }}
         >
-            <AppShellHeader display="none"></AppShellHeader>
+            <AppShellHeader>
+                <Flex justify="space-between" align="center" h={"100%"}>
+                    <Group px={15}>
+                        <LocaleSelector />
+                        <ThemeSelector asIcon />
+                    </Group>
+                </Flex>
+            </AppShellHeader>
             <AppShellNavbar ps={{ base: 0, xl: 150 }} style={{ overflow: "scroll" }}>
                 <AppShellSection p={{ base: 5, sm: 10 }}>
-                    <Text
-                        component="h1"
-                        fz={{ base: "h2", sm: "h1" }}
-                        fw="bolder"
-                    >
-                        <BsTwitterX />
-                    </Text>
+                    <Logo
+                        height={50}
+                        width={50}
+                        isLink
+                        href={PATHS.home.index}
+                    />
                 </AppShellSection>
                 <AppShellSection grow px={"5%"} h={"100%"}>
                     <SidebarNavigation
                         links={sidebarLinks}
 
                         navLinkProps={{
-                            style: {
-                                borderRadius: " calc(infinity * 1px)",
-                                textTransform: "uppercase",
-                                width: "100%",
-                                fontWeight: 600,
-                                '@media (max-width: 640px)': {
-                                    width: "fit-content",
-                                    borderRadius: " calc(infinity * 1px)",
-                                }
-                            },
+                            className: "x-navLink",
                             variant: "light",
                         }}
                         isIconOnlyProp={breakpoints.down.sm}
@@ -93,7 +92,6 @@ const XLayout = ({ children }: props) => {
             </AppShellNavbar>
             <AppShellAside ps={20} py={20} pe={{ base: 0, xl: 150 }}>
                 <AppShellSection>
-                    <ThemeSelector />
                 </AppShellSection>
             </AppShellAside >
             <AppShellMain>

@@ -1,9 +1,12 @@
 import { sidebarLinks } from '@/config-nav';
-import { AppShell, AppShellHeader, AppShellMain, Flex } from '@mantine/core';
+import PATHS from '@/paths';
+import { AppShell, AppShellHeader, AppShellMain, Box, Flex, Group } from '@mantine/core';
 import { ReactNode } from 'react';
-import ThemeToggle from '../../action/ThemeToggle';
+import LocaleSelector from '../../action/LocaleSelector';
+import ThemeSelector from '../../action/ThemeSelector';
 import Logo from '../../identity/Logo';
 import AppNavigation from '../../navigation/AppNavigation/AppNavigation';
+import MenuNavigation from '../../navigation/menuNavigation/MenuNavigation';
 
 type props = {
     children: ReactNode
@@ -30,26 +33,46 @@ const MainLayout = ({ children }: props) => {
                 mx={5}
             >
                 <Flex justify="space-between" align="center" h="100%" px="lg">
-                    <Logo />
-                    <AppNavigation
-                        links={sidebarLinks}
-                        navLinkProps={{
-                            styles: {
-                                root: {
-                                    transition: 'background-color 150ms ease',
-                                    '&:hover': {
-                                        backgroundColor: '#e6e6ff !important',
-                                    },
-                                    '&[data-hovered]': {
-                                        backgroundColor: '#e6e6ff',
-                                    },
-                                },
-                            }
-
-
-                        }}
+                    <Logo
+                        width={50}
+                        height={50}
+                        isLink
+                        href={PATHS.home.index}
                     />
-                    <ThemeToggle />
+                    <Box visibleFrom='md'>
+                        <AppNavigation
+                            links={sidebarLinks}
+                            navLinkProps={{
+                                styles: {
+                                    root: {
+                                        transition: 'background-color 150ms ease',
+                                        '&:hover': {
+                                            backgroundColor: '#e6e6ff !important',
+                                        },
+                                        '&[dataHovered]': {
+                                            backgroundColor: '#e6e6ff',
+                                        },
+                                        borderRadius: "var(--mantine-radius-md)"
+                                    },
+                                }
+
+
+                            }}
+                        />
+                    </Box>
+
+                    <Group>
+                        <ThemeSelector asIcon />
+                        <LocaleSelector />
+                        <Box hiddenFrom='md'>
+                            <MenuNavigation
+                                links={sidebarLinks}
+                                containerProps={{
+                                    width: "75vw",
+                                }}
+                            />
+                        </Box>
+                    </Group>
                 </Flex>
             </AppShellHeader>
             <AppShellMain>

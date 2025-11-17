@@ -1,4 +1,4 @@
-import { ActionIcon, Menu, MenuDropdown, MenuLabel, MenuProps, MenuTarget, NavLinkProps } from '@mantine/core'
+import { ActionIcon, Menu, MenuDropdown, MenuProps, MenuTarget, NavLinkProps } from '@mantine/core'
 import { RiMenu2Fill } from 'react-icons/ri'
 import RenderSidebarLinks from '../SidebarNavigation/RenderSidebarLinks'
 
@@ -28,15 +28,11 @@ const MenuNavigation = ({ links, navLinkProps, containerProps }: Props) => {
                 </ActionIcon>
             </MenuTarget>
             <MenuDropdown >
-                <MenuLabel
-                >
-                    pages
-                </MenuLabel>
-                    <RenderSidebarLinks
-                        items={links}
-                        full
-                        navLinkProps={navLinkProps}
-                    />
+                <RenderSidebarLinks
+                    items={links}
+                    full
+                    navLinkProps={navLinkProps}
+                />
             </MenuDropdown>
         </Menu>
     )

@@ -1,7 +1,8 @@
 "use client"
+import { usePathname } from "@/i18n/navigation";
 import { List, Menu, NavLink, NavLinkProps } from "@mantine/core";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
 import { textIcon } from "../../../context/mantine/styles";
 
@@ -13,18 +14,19 @@ type Props = {
 
 const RenderAppLinks = ({ items, invertIcon, navLinkProps }: Props) => {
     const pathname = usePathname();
+    const t = useTranslations("navigation");
 
     const renderLinks = (items: LinkType[], full: boolean): ReactNode =>
         items.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive = (pathname === link.href) || (window.location.hash === link.href);
 
             if (link.children?.length && !full) {
                 return (
-                    <Menu key={link.href}  withArrow shadow="md" trigger="click">
+                    <Menu key={link.href} withArrow shadow="md" trigger="click">
                         <Menu.Target>
                             <NavLink
                                 key={link.href}
-                                label={link.label}
+                                label={t(link.label)}
                                 leftSection={!invertIcon ? link.icon : undefined}
                                 rightSection={invertIcon ? link.icon : undefined}
                                 // childrenOffset={28}
@@ -37,7 +39,7 @@ const RenderAppLinks = ({ items, invertIcon, navLinkProps }: Props) => {
                         <Menu.Dropdown >
                             <Menu.Label style={textIcon}>
                                 {link.icon}
-                                {link.label}
+                                {t(link.label)}
                             </Menu.Label>
                             <Menu.Divider />
                             <List >
@@ -52,7 +54,7 @@ const RenderAppLinks = ({ items, invertIcon, navLinkProps }: Props) => {
                 return (
                     <NavLink
                         key={link.href}
-                        label={link.label}
+                        label={t(link.label)}
                         leftSection={!invertIcon ? link.icon : undefined}
                         rightSection={invertIcon ? link.icon : undefined}
                         // childrenOffset={28}
@@ -70,7 +72,7 @@ const RenderAppLinks = ({ items, invertIcon, navLinkProps }: Props) => {
                     key={link.href}
                     component={Link}
                     href={link.href}
-                    label={link.label}
+                    label={t(link.label)}
                     leftSection={!invertIcon ? link.icon : undefined}
                     rightSection={invertIcon ? link.icon : undefined}
                     active={isActive}

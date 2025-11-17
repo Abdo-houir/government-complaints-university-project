@@ -1,10 +1,11 @@
 import { sidebarLinks } from '@/config-nav';
-import { ActionIcon, AppShell, AppShellHeader, AppShellMain, AppShellNavbar, AppShellSection, Flex, Indicator } from '@mantine/core';
+import { AppShell, AppShellHeader, AppShellMain, AppShellNavbar, AppShellSection, Box, Flex, Stack } from '@mantine/core';
 import { ReactNode } from 'react';
-import { IoMdNotifications } from 'react-icons/io';
-import ThemeToggle from '../../action/ThemeToggle';
+import LocaleSelector from '../../action/LocaleSelector';
+import ThemeSelector from '../../action/ThemeSelector';
 import Logo from '../../identity/Logo';
 import SidebarNavigation from '../../navigation/SidebarNavigation/SidebarNavigation';
+import MyDrawer from '../drawers/MyDrawer';
 
 type props = {
     children: ReactNode
@@ -26,24 +27,44 @@ const ServicesLayout = ({ children }: props) => {
             <AppShellHeader
                 style={{
                     boxShadow: "var(--mantine-shadow-xl)",
-                    borderRadius: "var(--mantine-radius-lg)",
+                    borderBottomRightRadius: "var(--mantine-radius-lg)",
                     backdropFilter: "blur(5px)",          // <-- blur effect
                     WebkitBackdropFilter: "blur(5px)",    // <-- Safari support
                     backgroundColor: "color-mix(in srgb, var(--color-background-card) 80%, transparent)",
-
                 }}
-                mx={10}
-                my={5}
             >
                 <Flex h={"100%"} align="center" justify="space-between" px={15}>
                     <Flex h={"100%"} align="center" justify="center" gap={15}>
-                        <Indicator inline processing offset={8.5} color='red'>
-                            <ActionIcon size="lg" color='cyan'>
-                                <IoMdNotifications size={"80%"} />
-                            </ActionIcon>
-                        </Indicator>
-                        <ThemeToggle />
+                        <Box hiddenFrom='md'>
+                            <MyDrawer>
+                                <Stack gap={15} px={5}>
+                                    <Logo
+                                        width={75}
+                                        height={75}
+                                        isSmall={false}
+                                    />
+                                    <SidebarNavigation
+                                        links={sidebarLinks}
+                                        navLinkProps={{
+                                            style: {
+                                                borderRadius: "var(--mantine-radius-sm)",
+                                                textTransform: "uppercase",
+                                                width: "100%",
+                                                fontWeight: 600,
+                                            },
+                                            variant: "light",
+                                        }}
+                                    />
+                                </Stack>
+                            </MyDrawer>
+                        </Box>
+                        <ThemeSelector asIcon />
+                        <LocaleSelector />
                     </Flex>
+                    <Logo
+                        width={50}
+                        height={50}
+                    />
                 </Flex>
             </AppShellHeader>
             <AppShellNavbar
@@ -54,7 +75,9 @@ const ServicesLayout = ({ children }: props) => {
             >
                 <AppShellSection p={{ base: 5, sm: 10 }}>
                     <Logo
-
+                        width={75}
+                        height={75}
+                        isSmall={false}
                     />
                 </AppShellSection>
                 <AppShellSection grow px={"5%"} h={"100%"}>
@@ -63,7 +86,7 @@ const ServicesLayout = ({ children }: props) => {
 
                         navLinkProps={{
                             style: {
-                                borderRadius: " calc(infinity * 1px)",
+                                borderRadius: "var(--mantine-radius-sm)",
                                 textTransform: "uppercase",
                                 width: "100%",
                                 fontWeight: 600,
@@ -87,7 +110,7 @@ const ServicesLayout = ({ children }: props) => {
                     </Flex>
                 </AppShellSection>
             </AppShellNavbar>
-            <AppShellMain mt={5}>
+            <AppShellMain >
                 {children}
             </AppShellMain>
         </AppShell >

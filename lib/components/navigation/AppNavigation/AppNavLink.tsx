@@ -1,7 +1,7 @@
 "use client"
+import { Link, usePathname } from "@/i18n/navigation";
 import { Button, Menu, MenuDropdown, MenuItem, MenuLabel, MenuTarget } from '@mantine/core';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useTranslations } from "next-intl";
 import { FC } from 'react';
 import { textIcon } from '../../../context/mantine/styles';
 
@@ -13,7 +13,12 @@ type NavLinkProps = {
 
 const AppNavLink: FC<NavLinkProps> = ({ link, className, includes }) => {
     const pathname = usePathname();
-    const isActive = includes ? pathname.includes(link.href) : pathname === link.href;
+    const isActive = includes
+        ? pathname.includes(link.href) || link.href === window.location.hash
+        : (pathname === link.href) || (window.location.hash === link.href);
+    ;
+    const t = useTranslations("navigation");
+
     if (!!link.children) {
         return (
             <Menu >
@@ -27,13 +32,13 @@ const AppNavLink: FC<NavLinkProps> = ({ link, className, includes }) => {
                         miw="fit-content"
                         leftSection={!!link.icon && link.icon}
                     >
-                        {link.label}
+                        {t(link.label)}
                     </Button>
                 </MenuTarget>
                 <MenuDropdown>
                     <MenuLabel style={textIcon}>
                         {link.icon}
-                        {link.label}
+                        {t(link.label)}
                     </MenuLabel>
                     {
                         link.children.map(subLink => (
@@ -44,7 +49,7 @@ const AppNavLink: FC<NavLinkProps> = ({ link, className, includes }) => {
                                 href={subLink.href}
                                 c={isActive ? "var(--mantine-primary-color-5)" : "var(--mantine-color-text)"}
                             >
-                                {subLink.label}
+                                {t(subLink.label)}
                             </MenuItem>
                         ))
                     }
@@ -62,7 +67,7 @@ const AppNavLink: FC<NavLinkProps> = ({ link, className, includes }) => {
                     className={className}
                     leftSection={!!link.icon && link.icon}
                 >
-                    {link.label}
+                    {t(link.label)}
                 </Button>
             </Link>
         );

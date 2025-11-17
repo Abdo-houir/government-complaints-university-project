@@ -1,0 +1,52 @@
+{
+    "home": {
+        "hero": {
+            "title": "Echo of the Citizen",
+            "subTitle": "Your voice is heard clearly",
+            "content": "a digital platform for submitting and tracking complaints transparently and easily."
+        },
+        "ourServices": {
+            "title": "Echo of the Citizen features",
+            "submit": {
+                "title": "Easily submit complaints via the app",
+                "content": "A simple and easy-to-use interface enables citizens to quickly enter details of their complaint and attach photos and documents without complication."
+            },
+            "notifications": {
+                "title": "Monitor the status with instant notifications",
+                "content": "The citizen receives direct notifications when the complaint status changes, ensuring transparent and accurate follow-up on every step of the process."
+            },
+            "secure": {
+                "title": "Security and transparency in data management",
+                "content": "The system relies on advanced verification and protection mechanisms to ensure the confidentiality of information, with a clear timeline for each modification to enhance trust."
+            },
+            "accessible": {
+                "title": "Access from anywhere",
+                "content": "Citizens and government agencies can use the platform via a mobile application or web-based control panel, ensuring easy access at any time and from any device."
+            }
+        },
+        "howWeWorks": {
+            "title": "how the app Echo of the Citizen app",
+            "description": "here is a detailed timeline of how Echo of the Citizen works",
+            "1": {
+                "title": "Register your account easily",
+                "content": "The user enters basic information and receives a verification code (OTP) by SMS or email. After confirming the code, the account activates instantly — preventing fake accounts and protecting citizens’ data."
+            },
+            "2": {
+                "title": "Submit your complaint in simple steps",
+                "content": "The user fills a clear form with: the concerned government authority, complaint type, description of the issue location, photos or documents. When submitted, the system generates a reference number for tracking."
+            },
+            "3": {
+                "title": "Track the Complaint Status",
+                "content": "Inside the app, users can see the status of the complaint, Every update triggers an instant notification, so the citizen stays informed at every step."
+            },
+            "4": {
+                "title": "Government Agency Processes the Complaint",
+                "content": "Employees see the complaint on their dashboard: review details, request more information,  change status, add notes, upload responses. The system prevents two employees from modifying the same complaint simultaneously, ensuring accuracy and transparency."
+            },
+            "5": {
+                "title": "Citizen Receives Updates Instantly",
+                "content": "Whenever the agency changes the status or adds a note, the citizen receives: mobile push notification and in-app alert. This ensures full transparency without needing to visit offices or make calls."
+            }
+        }
+    }
+}

@@ -1,69 +1,87 @@
 "use client"
-import { Button, Menu, MenuDropdown, MenuItem, MenuLabel, MenuTarget, useMantineColorScheme } from "@mantine/core";
+import { ActionIcon, Button, MantineColorScheme, Menu, MenuDropdown, MenuItem, MenuLabel, MenuTarget, Tooltip, useMantineColorScheme } from "@mantine/core";
+import { useTranslations } from "next-intl";
 import { FaCloudMoon, FaCloudSun } from "react-icons/fa";
 import { GrSystem } from "react-icons/gr";
+import { PiChecksBold } from "react-icons/pi";
 
-const ThemeMods = {
-    auto: {
+const ThemeMods = [
+    {
         icon: <GrSystem />,
         color: "var(--mantine-primary-color-5)",
-        label: "System Preference",
-        shotLabel: "Auto",
+        key: "auto"
     },
-    dark: {
+    {
         icon: <FaCloudMoon />,
         color: "indigo",
-        label: "Dark Mode",
-        shotLabel: "Dark",
+        key: "dark"
     },
-    light: {
+    {
         icon: <FaCloudSun />,
         color: "orange",
-        label: "Light Mode",
-        shotLabel: "light",
+        key: "light"
+
     }
+];
+
+type Props = {
+    asIcon?: boolean
 }
-const ThemeSelector = () => {
+const ThemeSelector = ({ asIcon = false }: Props) => {
     const { setColorScheme, colorScheme } = useMantineColorScheme();
+
+    const t = useTranslations("theme")
+    const currentThemeMode = ThemeMods.find((themeMode) => themeMode.key === colorScheme) || ThemeMods[0];
 
     return (
         <Menu position="bottom">
             <MenuTarget>
-                <Button
-                    variant="light"
-                    style={{
-                        textTransform: "capitalize"
-                    }}
-                    color={ThemeMods[colorScheme].color}
-                    leftSection={ThemeMods[colorScheme].icon}
-                    radius="md"
-                >
-                    {ThemeMods[colorScheme].shotLabel}
-                </Button>
+                {
+                    asIcon
+                        ?
+                        <Tooltip label={t(`${currentThemeMode.key}.label`)}>
+                            <ActionIcon
+                                variant="transparent"
+                                size="lg"
+                                radius="xl"
+                                aria-label="Toggle color scheme"
+                                color={currentThemeMode.color}
+                            >
+                               {currentThemeMode.icon}
+                            </ActionIcon>
+                        </Tooltip>
+                        :
+                        <Button
+                            variant="light"
+                            style={{
+                                textTransform: "capitalize"
+                            }}
+                            color={currentThemeMode.color}
+                            leftSection={currentThemeMode.icon}
+                            radius="md"
+                        >
+                            {t(`${currentThemeMode.key}.shotLabel`)}
+                        </Button>
+                }
             </MenuTarget>
             <MenuDropdown >
-                <MenuLabel>Select theme mode</MenuLabel>
-                <MenuItem
-                    leftSection={<FaCloudSun />}
-                    color="orange"
-                    onClick={() => setColorScheme("light")}
-                >
-                    Light Mode
-                </MenuItem>
-                <MenuItem
-                    leftSection={<FaCloudMoon />}
-                    color="indigo"
-                    onClick={() => setColorScheme("dark")}
-                >
-                    Dark Mode
-                </MenuItem>
-                <MenuItem
-                    leftSection={<GrSystem />}
-                    color="var(--mantine-primary-color-5)"
-                    onClick={() => setColorScheme("auto")}
-                >
-                    System Preference
-                </MenuItem>
+                <MenuLabel>{t("title")}</MenuLabel>
+                {
+                    ThemeMods.map((themeMode) => {
+
+                        return (
+                            <MenuItem
+                                leftSection={themeMode.icon}
+                                rightSection={currentThemeMode.key === themeMode.key && <PiChecksBold color="teal" />}
+                                color={themeMode.color}
+                                onClick={() => setColorScheme(themeMode.key as MantineColorScheme)}
+                                key={themeMode.key}
+                            >
+                                {t(`${themeMode.key}.label`)}
+                            </MenuItem>
+                        );
+                    })
+                }
             </MenuDropdown>
         </Menu>
     )
