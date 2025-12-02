@@ -1,0 +1,119 @@
+{
+    "Role": [
+      {
+        "Id": 1,
+        "NameAr": "",
+        "NameEn": ""
+      }
+    ],
+    "User": [
+      {
+        "Id": 1,
+        "FirstNameAr": "",
+        "FirstNameEn": "",
+        "LastNameAr": "",
+        "LastNameEn": "",
+        "MiddleNameAr": "",
+        "MiddleNameEn": "",
+        "BirthPlaceAr": "",
+        "BirthPlaceEn": "",
+        "BirthDate": "",
+        "NationalNumber": "",
+        "IdFrontFace": "",
+        "IdBackFace": "",
+        "CurrentLocationAr": "",
+        "CurrentLocationEn": "",
+        "ContactNumber": "",
+        "Email": "",
+        "RoleId": 1
+      }
+    ],
+    "GovernmentAgency": [
+      {
+        "Id": 1,
+        "NameAr": "",
+        "NameEn": "",
+        "DescriptionAr": "",
+        "DescriptionEn": "",
+        "LocationAr": "",
+        "LocationEn": "",
+        "WorkingStartTime": "",
+        "WorkingEndTime": "",
+        "GovernmentAgencyStatus": "",
+        "ManagerId": 1,
+        "GovernmentAgencyId": null
+      }
+    ],
+    "GovernmentAgencySection": [
+      {
+        "Id": 1,
+        "GovernmentAgencyId": 1,
+        "NameAr": "",
+        "NameEn": "",
+        "DescriptionAr": "",
+        "DescriptionEn": ""
+      }
+    ],
+    "GovernmentAgencyService": [
+      {
+        "Id": 1,
+        "GovernmentAgencySectionId": 1,
+        "NameAr": "",
+        "NameEn": "",
+        "DescriptionAr": "",
+        "DescriptionEn": ""
+      }
+    ],
+    "Employee": [
+      {
+        "Id": 1,
+        "UserId": 1,
+        "GovernmentAgencyId": 1,
+        "GovernmentAgencySectionId": 1,
+        "PositionAr": "",
+        "PositionEn": ""
+      }
+    ],
+    "Complaint": [
+      {
+        "Id": 1,
+        "UserId": 1,
+        "GovernmentAgencyId": 1,
+        "GovernmentAgencySectionId": 1,
+        "GovernmentAgencyServiceId": 1,
+        "TitleAr": "",
+        "TitleEn": "",
+        "DescriptionAr": "",
+        "DescriptionEn": "",
+        "ComplaintStatusId": 1,
+        "CreatedAt": ""
+      }
+    ],
+    "ComplaintStatus": [
+      {
+        "Id": 1,
+        "NameAr": "",
+        "NameEn": ""
+      }
+    ],
+    "ComplaintResponse": [
+      {
+        "Id": 1,
+        "ComplaintId": 1,
+        "EmployeeId": 1,
+        "ResponseAr": "",
+        "ResponseEn": "",
+        "CreatedAt": ""
+      }
+    ],
+    "Media": [
+      {
+        "Id": 1,
+        "UserId": 1,
+        "ComplaintId": 1,
+        "FilePath": "",
+        "FileType": ""
+      }
+    ]
+  }
+  

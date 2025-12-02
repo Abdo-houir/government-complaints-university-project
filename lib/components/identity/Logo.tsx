@@ -1,34 +1,44 @@
 import { Link } from '@/i18n/navigation';
+import { Box, BoxProps } from '@mantine/core';
 import Image from "next/image";
 
 type Props = {
   width: number,
+  responseWidth?: BoxProps["w"]
   height: number,
+  responseHeight?: BoxProps["h"],
   isSmall?: boolean,
   isLink?: boolean,
-  href?: string
+  href?: string,
 }
 
 const smallLogo = "/logo/EmblemOfSyria.svg";
-const bigLogo = "/logo/CoatOfArmsOfSyria.svg";
+// const bigLogo = "/logo/CoatOfArmsOfSyria.svg";
 
 const Logo = ({
   height,
   width,
   isSmall = true,
   isLink = false,
-  href
+  href,
+  responseHeight,
+  responseWidth
 }: Props) => {
 
   if (isLink && !!href) {
     return (
       <Link href={href}>
-        <Image src={isSmall ? smallLogo : bigLogo} alt="Logo" width={width} height={height} style={{maxWidth: "100%"}}/>
+        <Box w={responseWidth || width} h={responseHeight || height} component='figure' m={0} p={0}>
+          <Image src={isSmall ? smallLogo : smallLogo} alt="Logo" width={width} height={height} style={{ maxWidth: "100%", width: "100%", height: "100%" }} />
+        </Box>
       </Link>
     )
   } else {
+
     return (
-      <Image src={isSmall ? smallLogo : bigLogo} alt="Logo" width={width} height={height} style={{maxWidth: "100%"}}/>
+      <Box w={responseWidth || width} h={responseHeight || height} component='figure' m={0} p={0}>
+        <Image src={isSmall ? smallLogo : smallLogo} alt="Logo" width={width} height={height} style={{ maxWidth: "100%", width: "100%", height: "100%" }} />
+      </Box>
     )
   }
 }

@@ -3,6 +3,16 @@
         "home": {
             "title": "Echo of the syrian Citizen",
             "description": "Echo of the Citizen is a Syrian digital platform that empowers people to submit complaints easily, track them in real time, and receive instant updates. With strong security, transparent data management, and accessible tools on mobile and web, citizens can raise their voice clearly and follow every step until resolution."
+        },
+        "auth": {
+            "login": {
+                "title": "Echo of the syrian Citizen login page",
+                "description": "Echo of the syrian Citizen login page for citizen, employees, mangers and admins to access there accounts"
+            },
+            "register": {
+                "title": "Echo of the syrian Citizen sign up page",
+                "description": "Echo of the syrian Citizen sign up page for citizen to create new citizen account and get access to the available features"
+            }
         }
     }
 }

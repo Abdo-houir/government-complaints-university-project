@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { hasLocale } from 'next-intl';
 import { getRequestConfig } from 'next-intl/server';
 import { routing } from './routing';
@@ -10,7 +11,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
         : routing.defaultLocale;
 
     // List of message namespaces you want to load
-    const namespaces = ['app', 'common', 'navigation','home',"metadata"];
+    const namespaces = ['app', 'common', 'navigation', 'home', "metadata", "auth", "fields"];
 
     // Load all JSON files and merge them
     const messages = Object.assign(
@@ -22,6 +23,8 @@ export default getRequestConfig(async ({ requestLocale }) => {
             })
         ))
     );
+
+    dayjs.locale(locale);
 
     return {
         locale,

@@ -47,6 +47,69 @@
                 "title": "Citizen Receives Updates Instantly",
                 "content": "Whenever the agency changes the status or adds a note, the citizen receives: mobile push notification and in-app alert. This ensures full transparency without needing to visit offices or make calls."
             }
+        },
+        "faq": {
+            "title": "Frequently Asked Questions",
+            "questions": [
+                {
+                    "q": "Is my personal data safe when I submit a complaint?",
+                    "a": "Yes. All personal information is encrypted and stored securely. Only the authorized government agency handling your complaint can view the details. No third party has access to your data."
+                },
+                {
+                    "q": "Do I need to visit the government office after submitting a complaint?",
+                    "a": "No. Everything happens inside the app. You will receive notifications and updates instantly, and the agency may request additional information directly through the app if needed."
+                },
+                {
+                    "q": "How long does it take for my complaint to be reviewed?",
+                    "a": "In most cases, government agencies respond within 48–72 hours depending on the nature of the complaint. You will see a countdown timer and timeline inside the app for transparency."
+                },
+                {
+                    "q": "Can I submit complaints anonymously?",
+                    "a": "You must register with your real identity for verification, but the app hides your identity from other users. Only the responsible agency sees your details for processing."
+                },
+                {
+                    "q": "What happens if my complaint is rejected?",
+                    "a": "The app shows the reason for rejection and gives you the option to resubmit, edit the information, or appeal the decision depending on the agency’s policy."
+                },
+                {
+                    "q": "Can I submit multiple complaints?",
+                    "a": "Yes. There is no limit. You can file multiple complaints and track each one separately with its unique reference number."
+                },
+                {
+                    "q": "Do I need internet to use the app?",
+                    "a": "Yes, an internet connection is required to submit complaints and receive updates. However, the app saves drafts offline and syncs them once you reconnect."
+                }
+            ]
+        },
+        "downloadApp": {
+            "title": "Download the Echo of the Citizen App",
+            "description": "Access the platform anytime and anywhere with our mobile app. Submit complaints, track their status, receive real-time notifications, and stay connected to government services—all from your pocket.",
+            "features": [
+                "Fast and secure login with OTP verification",
+                "Track complaints with a clear timeline interface",
+                "Receive instant notifications on every status change",
+                "Upload photos, videos, and documents directly from your device",
+                "Dark mode and accessibility-friendly UI",
+                "Available in Arabic and English"
+            ],
+            "buttons": {
+                "apk": {
+                    "label": "Download APK Directly",
+                    "url": "https://your-website.com/app.apk"
+                },
+                "webVersion": {
+                    "label": "Use the Web Version",
+                    "url": "https://your-website.com"
+                }
+            }
+        },
+        "parallax": {
+            "content": "“Whoever sees a wrong, let him change it with his hand; if he cannot, then with his tongue; if he cannot, then with his heart — and that is the weakest level of faith.”",
+            "author": "Prophet Muhammad, peace and blessings be upon him"
+        },
+        "accessApp": {
+            "title": "Access Citizen Echo",
+            "description": "Register a new account or log in to take full advantage of Citizen Echo services. You can submit complaints easily, track their progress step by step, and receive instant notifications whenever there is an update."
         }
     }
 }

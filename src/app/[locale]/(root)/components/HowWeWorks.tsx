@@ -13,14 +13,14 @@ const HowWeWorks = () => {
   const t = useTranslations("home.howWeWorks");
 
   const workTimeLineIcons: ReactNode[] = [
-    <BsPersonPlusFill size={30} key="BsPersonPlusFill"/>,
-    <RiContractFill size={30} key="RiContractFill"/>,
-    <IoMdNotifications size={30} key="IoMdNotifications"/>,
-    <GiProcessor size={30} key="GiProcessor"/>,
-    <MdTipsAndUpdates size={30} key="MdTipsAndUpdates"/>
+    <BsPersonPlusFill size={30} key="BsPersonPlusFill" />,
+    <RiContractFill size={30} key="RiContractFill" />,
+    <IoMdNotifications size={30} key="IoMdNotifications" />,
+    <GiProcessor size={30} key="GiProcessor" />,
+    <MdTipsAndUpdates size={30} key="MdTipsAndUpdates" />
   ];
 
-  const workTimeLine = Array.from({ length: 5 }, (_, index) => ({
+  const workTimeLine: workTimeLine[] = Array.from({ length: 5 }, (_, index) => ({
     title: t(`${index + 1}.title`),
     content: t(`${index + 1}.content`),
     icon: workTimeLineIcons[index]
@@ -28,7 +28,7 @@ const HowWeWorks = () => {
 
   return (
     <Slide direction="up" triggerOnce>
-      <Card mt={15} id="howWeWorks" >
+      <Card mt={20} id="howWeWorks" >
         <Slide direction="right" delay={100} triggerOnce>
           <Text fz="h2" component="h2" c="var(--mantine-primary-color-5)" fw="bold">
             {t("title")}

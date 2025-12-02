@@ -31,7 +31,7 @@ const OurServices = () => {
         },
     ]
     return (
-        <Stack id="services">
+        <Stack id="services" mt={20}>
             <Slide direction="right" triggerOnce>
                 <Text fz="h1" component="h2" c="var(--mantine-primary-color-5)" fw="bold" ps={"xl"}>
                     {t("title")}

@@ -1,10 +1,10 @@
 import { Link } from "@/i18n/navigation";
 import PATHS from "@/paths";
-import { Box, Button, Container, Flex, Group, Stack, Text } from "@mantine/core";
+import { Button, Container, Flex, Group, Stack, Text } from "@mantine/core";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 import { Fade, Zoom } from 'react-awesome-reveal';
 import { BsLaptopFill, BsPatchQuestionFill } from "react-icons/bs";
+import Logo from "../../../../../lib/components/identity/Logo";
 
 
 const HeroSection = () => {
@@ -18,31 +18,22 @@ const HeroSection = () => {
                 }}
                 h={"calc(100vh - 80px)"}
             >
-                <Flex justify={{base:"center",md:"space-around"}} align="center" h="100%" direction={{base:"column",md:"row"}}>
-                    <Box
-                        w={{ base: 200, md: 250, lg: 300 }}
-                        h={{ base: 200, md: 250, lg: 300 }}
-                    >
-                        <Image
-                            src={"/logo/CoatOfArmsOfSyria.svg"}
-                            alt={"free syria Coat Of Arms"}
-                            width={500}
-                            height={500}
-                            style={{
-                                width: "100%",
-                                height: '100%'
-                            }}
-                        />
-                    </Box>
+                <Flex justify={{ base: "center", md: "space-around" }} align="center" h="100%" direction={{ base: "column", md: "row" }}>
+                    <Logo
+                        width={500}
+                        height={500}
+                        responseWidth={{ base: 250, md: 300, lg: 350 }}
+                        responseHeight={{ base: 250, md: 300, lg: 350 }}
 
-                    <Stack justify="center" align="center"  gap={0}>
+                    />
+                    <Stack justify="center" align="center" gap={0}>
                         <Text
                             fz="h1"
                             fw="bolder"
                             c="emerald"
                             component="h1"
                         >
-                            <Fade cascade duration={100} triggerOnce>
+                            <Fade cascade duration={100} triggerOnce >
                                 {t("title")}
                             </Fade>
                         </Text>
@@ -52,7 +43,7 @@ const HeroSection = () => {
                             c="emerald"
                             component="h2"
                         >
-                            <Fade cascade duration={100} delay={600} triggerOnce>
+                            <Fade cascade duration={100} delay={600} triggerOnce >
                                 {t("subTitle")}
                             </Fade>
                         </Text>

@@ -1,9 +1,14 @@
 import { sidebarLinks } from '@/config-nav';
+import { Link } from '@/i18n/navigation';
 import PATHS from '@/paths';
-import { AppShell, AppShellHeader, AppShellMain, Box, Flex, Group } from '@mantine/core';
+import { AppShell, AppShellHeader, AppShellMain, Box, Button, Flex, Group, Loader } from '@mantine/core';
+import { useTranslations } from 'next-intl';
 import { ReactNode } from 'react';
+import { SiSimplelogin } from 'react-icons/si';
 import LocaleSelector from '../../../action/LocaleSelector';
 import ThemeSelector from '../../../action/ThemeSelector';
+import AuthSwitcher from '../../../auth/AuthSwitcher';
+import ProfileAvatar from '../../../auth/ProfileAvatar';
 import Logo from '../../../identity/Logo';
 import AppNavigation from '../../../navigation/AppNavigation/AppNavigation';
 import MenuNavigation from '../../../navigation/menuNavigation/MenuNavigation';
@@ -12,12 +17,15 @@ type props = {
     children: ReactNode
 }
 const AltMainLayout = ({ children }: props) => {
+    const tC = useTranslations("common");
+
 
     return (
         <AppShell
-            header={{ height: 65,offset: true }}
+            header={{ height: 65, offset: true }}
             layout='alt'
             padding={0}
+            mih={"100vh"}
             withBorder={true}
         >
             <AppShellHeader
@@ -32,12 +40,37 @@ const AltMainLayout = ({ children }: props) => {
                 mt={15}
             >
                 <Flex justify="space-between" align="center" h="100%" px="lg">
-                    <Logo
-                        width={50}
-                        height={50}
-                        isLink
-                        href={PATHS.home.index}
-                    />
+                    <Group>
+                        <Logo
+                            width={50}
+                            height={50}
+                            isLink
+                            href={PATHS.home.index}
+                        />
+                        <AuthSwitcher
+                            authenticatedComponent={
+                                <ProfileAvatar />
+                            }
+                            unauthenticatedComponent={
+                                <>
+                                    <Button
+                                        leftSection={<SiSimplelogin />}
+                                        size="sm"
+                                        radius="md"
+                                        variant="filled"
+                                        visibleFrom='xs'
+                                    >
+                                        <Link href={PATHS.auth.login}>
+                                            {tC("login")}
+                                        </Link>
+                                    </Button>
+                                </>
+                            }
+                            loadingComponent={
+                                <Loader type='dots' />
+                            }
+                        />
+                    </Group>
                     <Box visibleFrom='md'>
                         <AppNavigation
                             links={sidebarLinks}
@@ -74,7 +107,7 @@ const AltMainLayout = ({ children }: props) => {
                     </Group>
                 </Flex>
             </AppShellHeader>
-            <AppShellMain pt={75}>
+            <AppShellMain pt={75} >
                 {children}
             </AppShellMain>
         </AppShell >

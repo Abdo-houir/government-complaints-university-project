@@ -1,0 +1,134 @@
+{
+    "fields": {
+        "email": {
+            "label": "email",
+            "description": "please enter a valid email",
+            "req": "the email field is required",
+            "type": "email must end with @ (gmail,hotmail,mail)",
+            "min": "the email filed must be at least two characters long",
+            "max": "the email filed must be at max 50 characters long"
+        },
+        "password": {
+            "label": "password",
+            "description": "please enter your password",
+            "req": "the email field is required",
+            "min": "the password field must be at least 8 characters",
+            "max": "the password filed must be at max 50 characters long"
+        },
+        "password_confirmation": {
+            "label": "Confirm Password",
+            "description": "Please re-enter your password to confirm",
+            "req": "The confirm password field is required",
+            "min": "The confirm password must be at least 8 characters long",
+            "max": "The confirm password must not exceed 50 characters",
+            "match": "The password and confirm password must match"
+        },
+        "FirstnameAr": {
+            "label": "First name (Arabic)",
+            "description": "please enter your first name in Arabic letters",
+            "req": "the Arabic first name field is required",
+            "regex": "only Arabic letters and spaces are allowed",
+            "max": "the Arabic first name must be at max 255 characters long"
+        },
+        "FirstnameEn": {
+            "label": "First name (English)",
+            "description": "please enter your first name in English letters",
+            "nullable": "the English first name field is optional",
+            "regex": "only English letters and spaces are allowed",
+            "max": "the English first name must be at max 255 characters long"
+        },
+        "LastnameAr": {
+            "label": "Last name (Arabic)",
+            "description": "please enter your last name in Arabic letters",
+            "req": "the Arabic last name field is required",
+            "regex": "only Arabic letters and spaces are allowed",
+            "max": "the Arabic last name must be at max 255 characters long"
+        },
+        "LastnameEn": {
+            "label": "Last name (English)",
+            "description": "please enter your last name in English letters",
+            "nullable": "the English last name field is optional",
+            "regex": "only English letters and spaces are allowed",
+            "max": "the English last name must be at max 255 characters long"
+        },
+        "MiddlenameAr": {
+            "label": "Middle name (Arabic)",
+            "description": "please enter your middle name in Arabic letters",
+            "nullable": "the Arabic middle name field is optional",
+            "regex": "only Arabic letters and spaces are allowed",
+            "max": "the Arabic middle name must be at max 255 characters long"
+        },
+        "MiddlenameEn": {
+            "label": "Middle name (English)",
+            "description": "please enter your middle name in English letters",
+            "nullable": "the English middle name field is optional",
+            "regex": "only English letters and spaces are allowed",
+            "max": "the English middle name must be at max 255 characters long"
+        },
+        "BirthPlaceAr": {
+            "label": "Birth place (Arabic)",
+            "description": "please enter your birth place in Arabic letters",
+            "req": "the Arabic birth place field is required",
+            "regex": "only Arabic letters and spaces are allowed",
+            "max": "the Arabic birth place must be at max 255 characters long"
+        },
+        "BirthPlaceEn": {
+            "label": "Birth place (English)",
+            "description": "please enter your birth place in English letters",
+            "nullable": "the English birth place field is optional",
+            "regex": "only English letters and spaces are allowed",
+            "max": "the English birth place must be at max 255 characters long"
+        },
+        "BirthDate": {
+            "label": "Birth date",
+            "description": "please enter your date of birth",
+            "req": "the birth date field is required",
+            "before": "birth date must be before today",
+            "after": "birth date must be after 1900-01-01"
+        },
+        "NationalNumber": {
+            "label": "National number",
+            "description": "please enter your national number",
+            "req": "the national number field is required",
+            "regex": "only digits are allowed",
+            "min": "the national number must be exactly 11 digits",
+            "max": "the national number must be exactly 11 digits",
+            "unique": "this national number is already registered"
+        },
+        "IdFrontFace": {
+            "label": "ID front image",
+            "description": "please upload the front side of your ID card",
+            "req": "the ID front image is required",
+            "type": "only JPG, PNG, GIF images are allowed",
+            "max": "image size must be ≤ 2MB"
+        },
+        "IdBackFace": {
+            "label": "ID back image",
+            "description": "please upload the back side of your ID card",
+            "req": "the ID back image is required",
+            "type": "only JPG, PNG, GIF images are allowed",
+            "max": "image size must be ≤ 2MB"
+        },
+        "CurrentLocationAr": {
+            "label": "Current location (Arabic)",
+            "description": "please enter your current location in Arabic letters",
+            "req": "the Arabic current location field is required",
+            "regex": "only Arabic letters and spaces are allowed",
+            "max": "the Arabic current location must be at max 255 characters long"
+        },
+        "CurrentLocationEn": {
+            "label": "Current location (English)",
+            "description": "please enter your current location in English letters",
+            "nullable": "the English current location field is optional",
+            "regex": "only English letters and spaces are allowed",
+            "max": "the English current location must be at max 255 characters long"
+        },
+        "ContactNumber": {
+            "label": "Contact number",
+            "description": "please enter your phone number",
+            "req": "the contact number field is required",
+            "regex": "only digits, +, spaces, and - are allowed",
+            "max": "the contact number must be at max 20 characters long"
+        }
+    }
+}

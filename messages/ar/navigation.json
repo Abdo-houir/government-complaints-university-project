@@ -1,8 +1,10 @@
 {
     "navigation": {
         "home": "الرئيسية",
+        "backHome": "العودة إلى الصفحة الرئيسية",
         "ourServices": "خدماتنا",
         "howWeWorks": "كيف نعمل",
-        "aboutUs": "من نحن"
+        "aboutUs": "من نحن",
+        "faq": "الأسئلة الشائعة"
     }
 }

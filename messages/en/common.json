@@ -1,5 +1,8 @@
 {
     "common": {
-        "login": "login"
+        "login": "login",
+        "register": "register",
+        "next": "next",
+        "prev": "previous"
     }
 }

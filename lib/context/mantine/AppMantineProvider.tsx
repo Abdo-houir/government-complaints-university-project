@@ -46,8 +46,22 @@ const theme = createTheme({
         Input: {
             styles: {
                 input: { backgroundColor: "var(--color-background-primary)" },
-                label: { color: "var(--color-primary-main)" }
             },
+        },
+        InputLabel: {
+            defaultProps: {
+                c: "emerald",
+                fz: "lg",
+                ms:"1%"
+            }
+        },
+        InputDescription: {
+            defaultProps: {
+                fz: "md",
+                mb: 5,
+                c: "var(--color-text-primary)",
+                ms:"1%"
+            }
         },
         ScrollArea: {
             defaultProps: {
@@ -143,6 +157,13 @@ const theme = createTheme({
                 c: "indigo",
             },
         },
+        Accordion: {
+            styles: {
+                item: {
+                    backgroundColor: "var(--color-background-card)"
+                }
+            }
+        }
     },
 });
 

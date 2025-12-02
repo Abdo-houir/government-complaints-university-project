@@ -2,6 +2,7 @@
 
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { ActionIcon, Menu, MenuDropdown, MenuItem, MenuLabel, MenuTarget } from "@mantine/core";
+import dayjs from "dayjs";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { PiChecksBold } from "react-icons/pi";
@@ -22,10 +23,11 @@ const LocaleSelector = () => {
     const locale = useLocale();
     const router = useRouter();
     const pathName = usePathname();
-
+    
     const currentLocale = SupportedLocales.find((supportedLocale) => supportedLocale.value === locale)
     const switchLocale = (newLocale: string) => {
         if (newLocale !== locale) {
+            dayjs.locale(newLocale);
             router.replace(pathName, { locale: newLocale });
             router.refresh();
         }
