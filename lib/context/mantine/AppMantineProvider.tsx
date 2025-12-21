@@ -52,7 +52,7 @@ const theme = createTheme({
             defaultProps: {
                 c: "emerald",
                 fz: "lg",
-                ms:"1%"
+                ms: "1%"
             }
         },
         InputDescription: {
@@ -60,12 +60,14 @@ const theme = createTheme({
                 fz: "md",
                 mb: 5,
                 c: "var(--color-text-primary)",
-                ms:"1%"
+                ms: "1%"
             }
         },
         ScrollArea: {
             defaultProps: {
                 scrollbarSize: 5,
+                offsetScrollbars: true
+
             },
         },
         Paper: {
@@ -154,7 +156,7 @@ const theme = createTheme({
         },
         TableThead: {
             defaultProps: {
-                c: "indigo",
+                c: "emerald",
             },
         },
         Accordion: {

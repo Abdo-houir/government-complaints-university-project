@@ -1,7 +1,7 @@
 import { Link } from "@/i18n/navigation";
 import PATHS from "@/paths";
 import { Box, Button, Card, Flex, Group, Stack, Text } from "@mantine/core";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import { ReactNode } from "react";
 import { Slide } from "react-awesome-reveal";
@@ -18,9 +18,9 @@ const AccessImage = (): ReactNode => <Image
     }}
 />
 
-const AccessAppNow = () => {
-    const t = useTranslations("home.accessApp");
-    const tC = useTranslations("common");
+const AccessAppNow = async() => {
+    const t = await getTranslations("home.accessApp");
+    const tC = await getTranslations("common");
 
     return (
         <Card id="registerNow" >

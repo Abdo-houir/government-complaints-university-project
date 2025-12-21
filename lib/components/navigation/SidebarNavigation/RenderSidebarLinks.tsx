@@ -1,11 +1,13 @@
 "use client";
 
+import useAuthContext from "@/app/context/auth/useAuthContext";
+import { employeeLinks, managerLinks, questLinks } from "@/config-nav";
 import { usePathname } from "@/i18n/navigation";
 import { List, NavLink, NavLinkProps, Popover, Tooltip } from '@mantine/core';
 import { useMediaQuery } from '@mantine/hooks';
 import { useTranslations } from "next-intl";
 import Link from 'next/link';
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 
 type Props = {
     items: LinkType[],
@@ -15,10 +17,29 @@ type Props = {
     full: boolean
 }
 
-const RenderSidebarLinks = ({ items, isIconOnlyProp, invertIcon, navLinkProps, full = false }: Props) => {
+const RenderSidebarLinks = ({ isIconOnlyProp, invertIcon, navLinkProps, full = false }: Props) => {
     const pathname = usePathname();
     const isIconOnly = useMediaQuery(isIconOnlyProp || "none");
     const t = useTranslations("navigation");
+
+    const {role} = useAuthContext();
+
+    const [links,setLinks] = useState<LinkType[]>(questLinks);
+
+
+    useEffect(() => {
+        if (role && role.length > 0) {
+            const firstRole:AvailableRolesType = role[0].name;
+            
+            if (firstRole === "agencyManager") {
+                setLinks(managerLinks)
+            }
+
+            if (firstRole === "employee") {
+                setLinks(employeeLinks)
+            }
+        }
+    },[role]);
 
     const renderLinks = (items: LinkType[], full: boolean = false): ReactNode =>
         items.map((link) => {
@@ -95,7 +116,7 @@ const RenderSidebarLinks = ({ items, isIconOnlyProp, invertIcon, navLinkProps, f
             );
         });
 
-    return renderLinks(items, full);
+    return renderLinks(links, full);
 }
 
 export default RenderSidebarLinks

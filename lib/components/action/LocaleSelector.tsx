@@ -2,10 +2,11 @@
 
 import { usePathname, useRouter } from "@/i18n/navigation";
 import { ActionIcon, Menu, MenuDropdown, MenuItem, MenuLabel, MenuTarget } from "@mantine/core";
-import dayjs from "dayjs";
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { PiChecksBold } from "react-icons/pi";
+import { setHeaderLang } from "../../api/setup/api";
+import { setDayjsLocale } from "../../dayjs";
 
 const SupportedLocales = [
     {
@@ -23,11 +24,12 @@ const LocaleSelector = () => {
     const locale = useLocale();
     const router = useRouter();
     const pathName = usePathname();
-    
+
     const currentLocale = SupportedLocales.find((supportedLocale) => supportedLocale.value === locale)
     const switchLocale = (newLocale: string) => {
         if (newLocale !== locale) {
-            dayjs.locale(newLocale);
+            setHeaderLang(newLocale);
+            setDayjsLocale(newLocale as 'ar' | 'en');
             router.replace(pathName, { locale: newLocale });
             router.refresh();
         }
@@ -39,8 +41,8 @@ const LocaleSelector = () => {
         <Menu position="bottom">
             <MenuTarget>
                 <ActionIcon>
-                <Image src={currentLocale?.flag || SupportedLocales[0].flag} alt={`${currentLocale?.value}-flag`} width={30} height={25} />
-                    
+                    <Image src={currentLocale?.flag || SupportedLocales[0].flag} alt={`${currentLocale?.value}-flag`} width={30} height={25} />
+
                 </ActionIcon>
             </MenuTarget>
             <MenuDropdown >
@@ -51,9 +53,9 @@ const LocaleSelector = () => {
                         return (
                             <MenuItem
                                 leftSection={
-                                    <Image src={supportedLocale.flag} alt={`${supportedLocale.value}-flag`} width={30} height={25} style={{borderRadius:5}}/>
+                                    <Image src={supportedLocale.flag} alt={`${supportedLocale.value}-flag`} width={30} height={25} style={{ borderRadius: 5 }} />
                                 }
-                                rightSection={currentLocale?.value === supportedLocale.value && <PiChecksBold color="teal"/>}
+                                rightSection={currentLocale?.value === supportedLocale.value && <PiChecksBold color="teal" />}
                                 onClick={() => switchLocale(supportedLocale.value)}
                                 key={supportedLocale.value}
                             >

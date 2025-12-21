@@ -1,9 +1,11 @@
 "use client"
+import useAuthContext from "@/app/context/auth/useAuthContext";
+import { citizenLinks, employeeLinks, managerLinks, questLinks } from "@/config-nav";
 import { usePathname } from "@/i18n/navigation";
 import { List, Menu, NavLink, NavLinkProps } from "@mantine/core";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { textIcon } from "../../../context/mantine/styles";
 
 type Props = {
@@ -12,9 +14,32 @@ type Props = {
     navLinkProps?: NavLinkProps;
 }
 
-const RenderAppLinks = ({ items, invertIcon, navLinkProps }: Props) => {
+const RenderAppLinks = ({ invertIcon, navLinkProps }: Props) => {
     const pathname = usePathname();
     const t = useTranslations("navigation");
+    const { role } = useAuthContext();
+
+    const [links, setLinks] = useState<LinkType[]>(questLinks);
+
+
+    useEffect(() => {
+        if (role && role.length > 0) {
+            const firstRole: AvailableRolesType = role[0].name;
+
+            if (firstRole === "user") {
+                setLinks(citizenLinks)
+            }
+
+            if (firstRole === "agencyManager") {
+                setLinks(managerLinks)
+            }
+
+            if (firstRole === "employee") {
+                setLinks(employeeLinks)
+            }
+        }
+    }, [role]);
+
 
     const renderLinks = (items: LinkType[], full: boolean): ReactNode =>
         items.map((link) => {
@@ -81,7 +106,7 @@ const RenderAppLinks = ({ items, invertIcon, navLinkProps }: Props) => {
             );
         });
 
-    return renderLinks(items, false);
+    return renderLinks(links, false);
 
 }
 

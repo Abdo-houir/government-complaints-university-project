@@ -40,12 +40,12 @@ const InfoDrawer: React.FC<InfoDrawerProps> = ({
           borderBottomRightRadius: position === "bottom" ? '0rem' : "1rem",
         },
         body: {
-          backgroundColor: "var(--color-background-primary)"
+          backgroundColor: "var(--color-background-card)"
         },
         header: {
           width: '100%',
           display: 'block',
-          backgroundColor: "var(--color-background-primary)"
+          backgroundColor: "var(--color-background-card)"
         },
       }}
       title={
@@ -63,6 +63,7 @@ const InfoDrawer: React.FC<InfoDrawerProps> = ({
             root: {
               width: '100%',
               boxShadow: '0 1px 4px rgba(0,0,0,0.25)',
+              backgroundColor: "var(--color-background-primary)"
             },
           }}
         />

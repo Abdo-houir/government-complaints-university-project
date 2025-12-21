@@ -1,5 +1,5 @@
 // lib/tokenRefresher.ts
-import { REFRESH_TOKEN } from '@/constants';
+import { REFRESH_TOKEN, ROLE_STORAGE_KEY } from '@/constants';
 import { readLocalStorageValue } from '@mantine/hooks';
 import { AxiosError, AxiosRequestConfig } from 'axios';
 import { privateAxiosInstance, setHeaderToken } from './api';
@@ -15,8 +15,6 @@ function getRefreshTokenFromStorage(): unknown {
 export async function fetchNewToken(): Promise<string | null> {
   const refreshToken = getRefreshTokenFromStorage();
 
-  console.log(refreshToken);
-  
   try {
     // Replace with your actual endpoint path
     const res = await privateAxiosInstance.post<LoginREturnType>(
@@ -25,9 +23,11 @@ export async function fetchNewToken(): Promise<string | null> {
     );
     const newAccessToken = res.data.data.tokens.access_token;
     const newRefreshToken = res.data.data.tokens.refresh_token;
+    const roles = res.data.data.roles;
     // Update in-memory and default header
     setHeaderToken(newAccessToken);
     localStorage.setItem(REFRESH_TOKEN, newRefreshToken);
+    localStorage.setItem(ROLE_STORAGE_KEY, JSON.stringify(roles));
     return newAccessToken;
   } catch (error) {
     console.error(error);

@@ -1,0 +1,9 @@
+{
+    "managerPages": {
+        "sections": {
+            "title": "Sections Management",
+            "subtitle": "Manage all departments and sections within the organization",
+            "action": "Add New Section"
+        }
+    }
+}

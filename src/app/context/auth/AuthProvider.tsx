@@ -1,10 +1,10 @@
 "use client"
-import { REFRESH_TOKEN } from '@/constants';
+import { REFRESH_TOKEN, ROLE_STORAGE_KEY } from '@/constants';
 import { useRouter } from '@/i18n/navigation';
 import PATHS from '@/paths';
 import { useLocalStorage } from '@mantine/hooks';
 import { notifications } from '@mantine/notifications';
-import { AxiosError } from 'axios';
+import { useTranslations } from 'next-intl';
 import { ReactNode, createContext, useEffect, useState } from 'react';
 import { handleErrorMessageDecider } from '../../../../lib/api/handleErrorMessageDecider';
 import useAxiosMutation from '../../../../lib/api/react-query/useAxiosMutation';
@@ -19,6 +19,7 @@ type Props = {
 }
 export type AuthContextType = {
   user: UserType | null,
+  role: RoleType[] | null,
   token: string | null,
   login: {
     mutate: (input: unknown) => void,
@@ -37,9 +38,15 @@ export const AuthContext = createContext<AuthContextType | null>(null);
 
 const AuthProvider = ({ children }: Props) => {
   const { replace } = useRouter();
+  const tApi = useTranslations("apiMessages");
 
   const [refreshToken, setRefreshToken] = useLocalStorage<string>({
     key: REFRESH_TOKEN,
+    defaultValue: undefined
+  });
+
+  const [role, setRole] = useLocalStorage<RoleType[]>({
+    key: ROLE_STORAGE_KEY,
     defaultValue: undefined
   });
 
@@ -47,22 +54,19 @@ const AuthProvider = ({ children }: Props) => {
   const [status, setStatus] = useState<AuthType>("unauthenticated");
   const isLoading = useBoolean({ initialState: true });
 
-  const onLoginSuccess = () => { }
-
   const login = useAxiosMutation(endpoints.auth.login, "post");
 
-  const tempF = {
-
-  }
 
   const logoutCallback = () => {
     replace(PATHS.home.index);
     setUser(null);
     setStatus("unauthenticated")
     setRefreshToken("");
+    setRefreshToken("")
+    setRole([])
   }
 
-  const logout = useMutate(endpoints.auth.logout, [], "post", "Logout successfully", logoutCallback, () => { }, false, true);
+  const logout = useMutate(endpoints.auth.logout, [], "post", "Logout successfully", () => { }, () => { }, false,false);
 
   const initUser = useAxiosQuery(endpoints.auth.getProfile);
 
@@ -78,6 +82,12 @@ const AuthProvider = ({ children }: Props) => {
 
     isLoading.onFalse()
   }, [initUser.status]);
+
+  useEffect(() => {
+    if (initUser.isLoading) {
+      isLoading.onTrue()
+    }
+  }, [initUser.isLoading])
 
   const data: AuthContextType = {
     login: {
@@ -105,15 +115,16 @@ const AuthProvider = ({ children }: Props) => {
         login.mutate(input, {
           onSuccess: (data) => {
             const resolvedData = data as LoginREturnType
-            setHeaderToken(resolvedData.data.tokens.access_token)
-            setRefreshToken(resolvedData.data.tokens.refresh_token)
+            setHeaderToken(resolvedData.data.tokens.access_token);
+            setRefreshToken(resolvedData.data.tokens.refresh_token);
+            setRole(resolvedData.data.roles);
             initUser.refetch();
 
             notifications.update({
               id,
               color: "green",
-              title: 'Success',
-              message: "message",
+              title: tApi('success'),
+              message: tApi("loginSuccess"),
               withCloseButton: true,
               loading: false
             })
@@ -126,8 +137,8 @@ const AuthProvider = ({ children }: Props) => {
               color: "red",
               position: "top-right",
               draggable: true,
-              title: 'Error',
-              message: handleErrorMessageDecider(error as Error | AxiosError),
+              title: tApi('failed'),
+              message: handleErrorMessageDecider(error,tApi),
               autoClose: false,
               withCloseButton: true,
               loading: false
@@ -137,14 +148,21 @@ const AuthProvider = ({ children }: Props) => {
       },
       loading: login.isPending
     },
-    logout: logout.mutate,
+    logout: () => {
+      logout.mutate(null,false)
+      logoutCallback()
+    },
     register: {
-      mutate: (input: unknown, withNotification?: boolean) => { },
+      mutate: (input: unknown, withNotification?: boolean) => {
+        console.log(input);
+        console.log(withNotification);
+      },
       loading: false,
     },
     token: refreshToken,
     status: status,
     user: user,
+    role: role as RoleType[],
     isLoading: isLoading.value
   }
 

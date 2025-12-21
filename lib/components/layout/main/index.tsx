@@ -1,4 +1,4 @@
-import { sidebarLinks } from '@/config-nav';
+import { questLinks } from '@/config-nav';
 import PATHS from '@/paths';
 import { AppShell, AppShellHeader, AppShellMain, Box, Flex, Group } from '@mantine/core';
 import { ReactNode } from 'react';
@@ -41,7 +41,7 @@ const MainLayout = ({ children }: props) => {
                     />
                     <Box visibleFrom='md'>
                         <AppNavigation
-                            links={sidebarLinks}
+                            links={questLinks}
                             navLinkProps={{
                                 styles: {
                                     root: {
@@ -66,7 +66,7 @@ const MainLayout = ({ children }: props) => {
                         <LocaleSelector />
                         <Box hiddenFrom='md'>
                             <MenuNavigation
-                                links={sidebarLinks}
+                                links={questLinks}
                                 containerProps={{
                                     width: "75vw",
                                 }}

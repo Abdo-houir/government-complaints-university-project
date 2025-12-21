@@ -11,7 +11,7 @@ export default getRequestConfig(async ({ requestLocale }) => {
         : routing.defaultLocale;
 
     // List of message namespaces you want to load
-    const namespaces = ['app', 'common', 'navigation', 'home', "metadata", "auth", "fields"];
+    const namespaces = ['app', 'common', 'navigation', 'home', "metadata", "auth", "fields","apiMessages","managerPages","citizenPages","complains","admin","manager","employee"];
 
     // Load all JSON files and merge them
     const messages = Object.assign(

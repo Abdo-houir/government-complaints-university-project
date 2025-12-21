@@ -1,20 +1,29 @@
-import { sidebarLinks } from '@/config-nav';
+import { questLinks } from '@/config-nav';
 import { Link } from '@/i18n/navigation';
 import PATHS from '@/paths';
-import { AppShell, AppShellHeader, AppShellMain, Box, Button, Flex, Group, Loader } from '@mantine/core';
+import { AppShell, AppShellHeader, AppShellMain, Box, Button, Flex, Group, Skeleton } from '@mantine/core';
 import { useTranslations } from 'next-intl';
+import dynamic from 'next/dynamic';
 import { ReactNode } from 'react';
 import { SiSimplelogin } from 'react-icons/si';
 import LocaleSelector from '../../../action/LocaleSelector';
 import ThemeSelector from '../../../action/ThemeSelector';
-import AuthSwitcher from '../../../auth/AuthSwitcher';
-import ProfileAvatar from '../../../auth/ProfileAvatar';
+import AuthBoundary from '../../../auth/AuthBoundary';
+import ProfileDropdown from '../../../auth/profile/ProfileDropdown';
+import ProfileAvatar from '../../../auth/ProfileAvatar/ProfileAvatar';
+import ProfileAvatarSkeleton from '../../../auth/ProfileAvatar/ProfileAvatarSkeleton';
 import Logo from '../../../identity/Logo';
 import AppNavigation from '../../../navigation/AppNavigation/AppNavigation';
 import MenuNavigation from '../../../navigation/menuNavigation/MenuNavigation';
 
+const ProfileMenu = dynamic(() => import("../../../auth/ProfileMenu"), {
+    ssr: true,
+    loading: () => <Skeleton height={40} width={120} radius="md" />,
+});
+
+
 type props = {
-    children: ReactNode
+    children: ReactNode,
 }
 const AltMainLayout = ({ children }: props) => {
     const tC = useTranslations("common");
@@ -36,8 +45,8 @@ const AltMainLayout = ({ children }: props) => {
                     WebkitBackdropFilter: "blur(5px)",    // <-- Safari support
                     backgroundColor: "color-mix(in srgb, var(--color-background-card) 80%, transparent)",
                 }}
-                mx={"10vw"}
-                mt={15}
+                mx={{ base: 0, sm: "5vw", md: "7vw", lg: "10vw" }}
+                mt={{ base: 0, sm: 15 }}
             >
                 <Flex justify="space-between" align="center" h="100%" px="lg">
                     <Group>
@@ -47,9 +56,18 @@ const AltMainLayout = ({ children }: props) => {
                             isLink
                             href={PATHS.home.index}
                         />
-                        <AuthSwitcher
+                        <AuthBoundary
                             authenticatedComponent={
-                                <ProfileAvatar />
+                                <ProfileMenu
+                                    target={
+                                        <ProfileAvatar
+                                            emailNameArrowFlexProps={{
+                                                visibleFrom: "md"
+                                            }}
+                                        />
+                                    }
+                                    content={<ProfileDropdown />}
+                                />
                             }
                             unauthenticatedComponent={
                                 <>
@@ -67,16 +85,19 @@ const AltMainLayout = ({ children }: props) => {
                                 </>
                             }
                             loadingComponent={
-                                <Loader type='dots' />
+                                <ProfileAvatarSkeleton/>
                             }
                         />
                     </Group>
-                    <Box visibleFrom='md'>
+                    <Box visibleFrom='md' >
                         <AppNavigation
-                            links={sidebarLinks}
+                            links={questLinks}
                             navLinkProps={{
                                 styles: {
                                     root: {
+                                        wordBreak: "normal",
+                                        whiteSpace: "nowrap",
+                                        minWidth: "fit-content",
                                         transition: 'background-color 150ms ease',
                                         '&:hover': {
                                             backgroundColor: '#e6e6ff !important',
@@ -98,7 +119,7 @@ const AltMainLayout = ({ children }: props) => {
                         <LocaleSelector />
                         <Box hiddenFrom='md'>
                             <MenuNavigation
-                                links={sidebarLinks}
+                                links={questLinks}
                                 containerProps={{
                                     width: "75vw",
                                 }}
@@ -107,7 +128,7 @@ const AltMainLayout = ({ children }: props) => {
                     </Group>
                 </Flex>
             </AppShellHeader>
-            <AppShellMain pt={75} >
+            <AppShellMain style={{ overflow: "hidden" }} pt={80}>
                 {children}
             </AppShellMain>
         </AppShell >

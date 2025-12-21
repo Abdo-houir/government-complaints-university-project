@@ -1,4 +1,4 @@
-import { Divider, Flex, MantineColor, Stack, Text, ThemeIcon, ThemeIconVariant } from '@mantine/core';
+import { Divider, Flex, MantineColor, Stack, Text, TextProps, ThemeIcon, ThemeIconVariant } from '@mantine/core';
 import React, { ReactNode } from 'react';
 import { textIcon } from '../../context/mantine/styles';
 
@@ -10,7 +10,10 @@ interface InfoIconProps {
     action?: ReactNode;
     withDivider?: boolean;
     row?: boolean;
-    variant?: ThemeIconVariant
+    variant?: ThemeIconVariant,
+    labelProps?:TextProps
+    valueProps?:TextProps
+  
 }
 
 const InfoIcon: React.FC<InfoIconProps> = ({
@@ -21,7 +24,9 @@ const InfoIcon: React.FC<InfoIconProps> = ({
     action,
     withDivider = false,
     row,
-    variant = "outline"
+    variant = "outline",
+    labelProps,
+    valueProps
 }) => {
     return (
         <Stack gap={0}>
@@ -31,7 +36,7 @@ const InfoIcon: React.FC<InfoIconProps> = ({
                     gap={5}
                     align={row ? 'center' : 'normal'}
                 >
-                    <Text style={textIcon} c={color} fz={{ base: 'sm', md: 'md' }} fw={500}>
+                    <Text style={textIcon} c={color} fz={{ base: 'sm', md: 'md' }} fw={500} {...labelProps}>
                         {icon &&
                             <ThemeIcon
                                 variant={variant}
@@ -43,7 +48,7 @@ const InfoIcon: React.FC<InfoIconProps> = ({
                         {label}
                     </Text>
                     {typeof children === 'string' || typeof children === 'number' ? (
-                        <Text fz={{ base: 'xs', md: 'sm' }} fw={400}>
+                        <Text fz={{ base: 'xs', md: 'sm' }} fw={400} {...valueProps}>
                             {children}
                         </Text>
                     ) : (

@@ -1,5 +1,5 @@
 import { Card, Container, Text, Timeline, TimelineItem } from "@mantine/core";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { ReactNode } from "react";
 import { Slide, Zoom } from "react-awesome-reveal";
 import { BsPersonPlusFill } from "react-icons/bs";
@@ -9,8 +9,8 @@ import { MdTipsAndUpdates } from "react-icons/md";
 import { RiContractFill } from "react-icons/ri";
 
 
-const HowWeWorks = () => {
-  const t = useTranslations("home.howWeWorks");
+const HowWeWorks = async () => {
+  const t = await getTranslations("home.howWeWorks");
 
   const workTimeLineIcons: ReactNode[] = [
     <BsPersonPlusFill size={30} key="BsPersonPlusFill" />,

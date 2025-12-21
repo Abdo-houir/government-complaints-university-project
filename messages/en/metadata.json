@@ -13,6 +13,12 @@
                 "title": "Echo of the syrian Citizen sign up page",
                 "description": "Echo of the syrian Citizen sign up page for citizen to create new citizen account and get access to the available features"
             }
+        },
+        "citizen": {
+            "agencies": {
+                "title": "Government Agencies Directory",
+                "description": "Browse our directory of government agencies and departments. Selecting the correct authority for your complaint ensures it's handled by the right team for faster resolution and better service."
+            }
         }
     }
 }

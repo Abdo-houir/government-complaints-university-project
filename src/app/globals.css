@@ -25,9 +25,9 @@ a {
 
 :root {
   /* Free Syria theme colors */
-  --color-primary-light: oklch(87% 0.065 274.039);
-  --color-primary-main: oklch(67.3% 0.182 276.935);
-  --color-primary-dark: oklch(48.8% 0.243 264.376);
+  --color-primary-light: #CFF0EB;
+  --color-primary-main: #3AA99A;
+  --color-primary-dark: #1B544D;
   
     /* backgrounds */
     --color-background-primary: #f0f0f0;

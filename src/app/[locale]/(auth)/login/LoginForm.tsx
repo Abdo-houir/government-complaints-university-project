@@ -11,7 +11,7 @@ import { IoMdMail } from "react-icons/io"
 import { SiSimplelogin } from "react-icons/si"
 
 const LoginForm = () => {
-    const { login, isLoading } = useAuthContext();
+    const { login } = useAuthContext();
     const tc = useTranslations("common");
     const tA = useTranslations("auth.login");
 

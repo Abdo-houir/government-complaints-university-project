@@ -67,6 +67,7 @@
         },
         "BirthPlaceAr": {
             "label": "Birth place (Arabic)",
+            "labelAlt": "Birth place",
             "description": "please enter your birth place in Arabic letters",
             "req": "the Arabic birth place field is required",
             "regex": "only Arabic letters and spaces are allowed",
@@ -129,6 +130,244 @@
             "req": "the contact number field is required",
             "regex": "only digits, +, spaces, and - are allowed",
             "max": "the contact number must be at max 20 characters long"
+        },
+        "complain": {
+            "Title": {
+                "label": "Complaint Title",
+                "placeholder": "Enter a descriptive title",
+                "description": "Title should be clear, concise, and express the essence of the complaint",
+                "min": "Title is required",
+                "max": "Title must be less than 255 characters"
+            },
+            "Content": {
+                "label": "Complaint Details",
+                "placeholder": "Describe your complaint in detail...",
+                "description": "Provide all relevant information",
+                "min": "Content is required"
+            },
+            "media": {
+                "label": "Attachments (Optional)",
+                "max": "Max 10 files, 20MB each",
+                "mimes": "Supported formats: JPG, JPEG, PNG, MP4, PDF (Max 20MB each)",
+                "maxFileSize": "File size must be less than 20MB",
+                "mimesError": "File type must be: JPG, JPEG, PNG, MP4, or PDF",
+                "FilesLimit": "Maximum 10 files allowed",
+                "dragDrop": "drag and drop files here or click to select",
+                "selectedFiles": "selected files"
+            }
+        },
+        "NameAr": {
+            "label": "Name in Arabic",
+            "description": "Section or service name in Arabic",
+            "req": "Arabic name is required",
+            "max": "Name must not exceed 100 characters",
+            "regex": "Name must contain only Arabic characters"
+        },
+        "NameEn": {
+            "label": "Name in English",
+            "description": "Section or service name in English",
+            "req": "English name is required",
+            "max": "Name must not exceed 100 characters",
+            "regex": "Name must contain only English characters"
+        },
+        "DescriptionAr": {
+            "label": "Description in Arabic",
+            "description": "Section or service description in Arabic",
+            "req": "Arabic description is required",
+            "max": "Description must not exceed 500 characters",
+            "regex": "Description must contain only Arabic characters"
+        },
+        "DescriptionEn": {
+            "label": "Description in English",
+            "description": "Section or service description in English",
+            "req": "English description is required",
+            "max": "Description must not exceed 500 characters",
+            "regex": "Description must contain only English characters"
+        },
+        "employee": {
+            "FirstnameAr": {
+                "label": "First Name (Arabic)",
+                "placeholder": "Enter first name in Arabic",
+                "req": "First name in Arabic is required",
+                "max": "Name must not exceed 100 characters",
+                "regex": "Name must contain only Arabic characters"
+            },
+            "FirstnameEn": {
+                "label": "First Name (English)",
+                "placeholder": "Enter first name in English",
+                "max": "Name must not exceed 100 characters",
+                "req": "First name in English is required",
+                "regex": "Name must contain only English characters"
+            },
+            "MiddlenameAr": {
+                "label": "Middle Name (Arabic)",
+                "placeholder": "Enter middle name in Arabic",
+                "req": "Middle name in Arabic is required",
+                "max": "Name must not exceed 100 characters",
+                "regex": "Name must contain only Arabic characters"
+            },
+            "MiddlenameEn": {
+                "label": "Middle Name (English)",
+                "placeholder": "Enter middle name in English",
+                "req": "Middle name in English is required",
+                "max": "Name must not exceed 100 characters",
+                "regex": "Name must contain only English characters"
+            },
+            "LastnameAr": {
+                "label": "Last Name (Arabic)",
+                "placeholder": "Enter last name in Arabic",
+                "req": "Last name in Arabic is required",
+                "max": "Name must not exceed 100 characters",
+                "regex": "Name must contain only Arabic characters"
+            },
+            "LastnameEn": {
+                "label": "Last Name (English)",
+                "placeholder": "Enter last name in English",
+                "req": "Last name in English is required",
+                "max": "Name must not exceed 100 characters",
+                "regex": "Name must contain only English characters"
+            },
+            "BirthPlaceAr": {
+                "label": "Birth Place (Arabic)",
+                "placeholder": "Enter birth place in Arabic",
+                "req": "Birth place in Arabic is required",
+                "max": "Must not exceed 100 characters",
+                "regex": "Must contain only Arabic characters"
+            },
+            "BirthPlaceEn": {
+                "label": "Birth Place (English)",
+                "placeholder": "Enter birth place in English",
+                "req": "Birth place in English is required",
+                "max": "Must not exceed 100 characters",
+                "regex": "Must contain only English characters"
+            },
+            "BirthDate": {
+                "label": "Birth Date",
+                "placeholder": "Select birth date",
+                "req": "Birth date is required",
+                "format": "Date must be in YYYY-MM-DD format"
+            },
+            "NationalNumber": {
+                "placeholder": "Enter national number",
+                "label": "National number",
+                "description": "please enter your national number",
+                "req": "the national number field is required",
+                "regex": "only digits are allowed",
+                "min": "the national number must be exactly 11 digits",
+                "max": "the national number must be exactly 11 digits",
+                "unique": "this national number is already registered"
+            },
+            "CurrentLocationAr": {
+                "label": "Current Location (Arabic)",
+                "placeholder": "Enter current location in Arabic",
+                "req": "Current location in Arabic is required",
+                "max": "Must not exceed 255 characters",
+                "regex": "Must contain only Arabic characters"
+            },
+            "CurrentLocationEn": {
+                "label": "Current Location (English)",
+                "placeholder": "Enter current location in English",
+                "req": "Current location in English is required",
+                "max": "Must not exceed 255 characters",
+                "regex": "Must contain only English characters"
+            },
+            "ContactNumber": {
+                "label": "Contact Number",
+                "placeholder": "Enter contact number",
+                "req": "Contact number is required",
+                "max": "Must not exceed 20 digits"
+            },
+            "Email": {
+                "label": "Email",
+                "placeholder": "Enter email address",
+                "req": "Email is required",
+                "max": "Must not exceed 255 characters",
+                "format": "Invalid email format"
+            },
+            "password": {
+                "label": "Password",
+                "placeholder": "Enter password",
+                "req": "Password is required",
+                "min": "Password must be at least 6 characters"
+            },
+            "EmploymentStatus": {
+                "label": "Employment Status",
+                "placeholder": "Select employment status"
+            },
+            "EmploymentDate": {
+                "label": "Employment Date",
+                "placeholder": "Select employment date",
+                "format": "Date must be in YYYY-MM-DD format"
+            },
+            "CanResponseToComplaint": {
+                "label": "Can Respond to Complaints"
+            },
+            "CanChangeComplaintStatus": {
+                "label": "Can Change Complaint Status"
+            }
+        },
+        "agency": {
+            "NameAr": {
+                "label": "Agency Name (Arabic)",
+                "placeholder": "Enter agency name in Arabic",
+                "req": "Agency name in Arabic is required",
+                "max": "Name must not exceed 255 characters",
+                "regex": "Name must contain only Arabic characters"
+            },
+            "NameEn": {
+                "label": "Agency Name (English)",
+                "placeholder": "Enter agency name in English",
+                "req": "Agency name in English is required",
+                "max": "Name must not exceed 255 characters",
+                "regex": "Name must contain only English characters"
+            },
+            "DescriptionAr": {
+                "label": "Description (Arabic)",
+                "placeholder": "Enter description in Arabic",
+                "req": "Description in Arabic is required"
+            },
+            "DescriptionEn": {
+                "label": "Description (English)",
+                "placeholder": "Enter description in English",
+                "req": "Description in English is required"
+            },
+            "LocationAr": {
+                "label": "Location (Arabic)",
+                "placeholder": "Enter location in Arabic",
+                "req": "Location in Arabic is required"
+            },
+            "LocationEn": {
+                "label": "Location (English)",
+                "placeholder": "Enter location in English",
+                "req": "Location in English is required"
+            },
+            "WorkingStartTime": {
+                "label": "Working Start Time",
+                "placeholder": "Enter working start time (HH:mm)",
+                "req": "Working start time is required",
+                "format": "Time must be in HH:mm format (24-hour)"
+            },
+            "WorkingEndTime": {
+                "label": "Working End Time",
+                "placeholder": "Enter working end time (HH:mm)",
+                "req": "Working end time is required",
+                "format": "Time must be in HH:mm format (24-hour)"
+            },
+            "Status": {
+                "label": "Agency Status",
+                "placeholder": "Select agency status"
+            },
+            "ParentId": {
+                "label": "Parent Agency",
+                "placeholder": "Select parent agency",
+                "integer": "Must be a positive integer"
+            },
+            "ManagerId": {
+                "label": "Responsible Manager",
+                "placeholder": "Select responsible manager",
+                "integer": "Must be a positive integer"
+            },
+            "timeComparison": "Working end time must be after working start time"
         }
     }
 }

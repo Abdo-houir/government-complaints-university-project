@@ -18,8 +18,9 @@ const PageHeader: React.FC<PageHeaderProps> = ({
     <Flex
       w="100%"
       justify="space-between"
+      align={{base:"normal",md: full? "normal" : "center"}}
       direction={{ base: 'column', md: full ? 'column' : 'row' }}
-      gap={5}
+      gap={20}
     >
       <Stack gap={1} w={{ base: '100%', lg: full ? '100%' : '50%' }}>
         {title && (

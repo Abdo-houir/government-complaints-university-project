@@ -3,6 +3,28 @@
         "login": "login",
         "register": "register",
         "next": "next",
-        "prev": "previous"
+        "prev": "previous",
+        "viewDetails": "view details",
+        "submit": "submit",
+        "download": "download",
+        "back": "back",
+        "backToList": "back to list",
+        "create": "create",
+        "edit": "edit",
+        "delete": "delete",
+        "confirm": "confirm",
+        "cancel": "cancel",
+        "clearFilters": "Clear filters",
+        "agency": {
+            "status": {
+                "active": "active",
+                "inactive": "inactive"
+            },
+            "workingHours": "working hours",
+            "services": "services"
+        },
+        "complain": {
+            "submit": "submit complain"
+        }
     }
 }

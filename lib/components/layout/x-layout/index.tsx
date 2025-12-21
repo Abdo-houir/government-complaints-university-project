@@ -1,4 +1,4 @@
-import { sidebarLinks } from '@/config-nav';
+import { questLinks } from '@/config-nav';
 import { breakpoints } from '@/constants';
 import PATHS from '@/paths';
 import { AppShell, AppShellAside, AppShellHeader, AppShellMain, AppShellNavbar, AppShellSection, Flex, Group } from '@mantine/core';
@@ -54,7 +54,7 @@ const XLayout = ({ children }: props) => {
                 </AppShellSection>
                 <AppShellSection grow px={"5%"} h={"100%"}>
                     <SidebarNavigation
-                        links={sidebarLinks}
+                        links={questLinks}
 
                         navLinkProps={{
                             className: "x-navLink",

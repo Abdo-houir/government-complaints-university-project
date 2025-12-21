@@ -1,0 +1,130 @@
+{
+    "manager": {
+        "employees": {
+            "title": "إدارة الموظفين",
+            "subtitle": "إدارة موظفي الوكالة الحكومية",
+            "add": "إضافة موظف جديد",
+            "table": {
+                "searchPlaceholder": "ابحث في الموظفين...",
+                "filterBy": "تصفية حسب",
+                "filterByStatus": "حالة التوظيف",
+                "allFields": "جميع الحقول",
+                "byName": "بالاسم",
+                "byEmail": "بالبريد الإلكتروني",
+                "byNationalNumber": "بالرقم الوطني",
+                "allStatuses": "جميع الحالات",
+                "active": "نشط",
+                "inactive": "غير نشط",
+                "actions": "الإجراءات",
+                "noResults": "لا توجد نتائج تطابق بحثك",
+                "noData": "لا يوجد موظفين لعرضهم",
+                "resultsCount": "عرض {count} من أصل {total} موظف",
+                "employee": "الموظف",
+                "contact": "معلومات الاتصال",
+                "sectionAgency": "القسم والوكالة",
+                "status": "الحالة",
+                "permissions": "الصلاحيات",
+                "canRespond": "يمكنه الرد",
+                "cannotRespond": "لا يمكنه الرد",
+                "canChangeStatus": "يمكنه تغيير الحالة",
+                "cannotChangeStatus": "لا يمكنه تغيير الحالة",
+                "viewId": "عرض بطاقة الهوية"
+            },
+            "details": {
+                "status": {
+                    "active": "نشط",
+                    "inactive": "غير نشط"
+                },
+                "yearsOld": "سنة",
+                "downloadProfile": "تحميل الملف الشخصي",
+                "print": "طباعة",
+                "share": "مشاركة",
+                "personalInfo": {
+                    "title": "المعلومات الشخصية",
+                    "firstName": "الاسم الأول",
+                    "lastName": "اسم العائلة",
+                    "middleName": "اسم الأب",
+                    "nationalNumber": "الرقم الوطني",
+                    "birthDate": "تاريخ الميلاد",
+                    "age": "العمر",
+                    "birthPlace": "مكان الميلاد"
+                },
+                "contactInfo": {
+                    "title": "معلومات الاتصال",
+                    "email": "البريد الإلكتروني",
+                    "phone": "رقم الهاتف",
+                    "location": "الموقع الحالي"
+                },
+                "employmentInfo": {
+                    "title": "معلومات التوظيف",
+                    "agency": "الوكالة",
+                    "section": "القسم",
+                    "employmentDate": "تاريخ التوظيف",
+                    "employmentDuration": "مدة الخدمة"
+                },
+                "permissions": {
+                    "title": "الصلاحيات والصلاحيات",
+                    "complaintPermissions": "صلاحيات الشكاوى",
+                    "canRespond": "يمكنه الرد على الشكاوى",
+                    "canChangeStatus": "يمكنه تغيير حالة الشكاوى",
+                    "currentStatus": "الحالة الحالية",
+                    "active": "نشط",
+                    "inactive": "غير نشط"
+                },
+                "idCards": {
+                    "title": "بطاقة الهوية",
+                    "front": "الوجه الأمامي",
+                    "back": "الوجه الخلفي",
+                    "clickToView": "انقر لعرض الصورة كاملة",
+                    "downloadFront": "تحميل الوجه الأمامي",
+                    "downloadBack": "تحميل الوجه الخلفي"
+                },
+                "years": "سنوات",
+                "months": "أشهر"
+            },
+            "editEmployee": "تعديل بيانات الموظف",
+            "addEmployee": "إضافة موظف جديد",
+            "personalInfo": "المعلومات الشخصية",
+            "birthInfo": "معلومات الميلاد",
+            "contactInfo": "معلومات الاتصال",
+            "passwordSection": "كلمة المرور",
+            "employmentPermissions": "التوظيف والصلاحيات",
+            "active": "نشط",
+            "inactive": "غير نشط"
+        },
+        "sections": {
+            "title": "إدارة الأقسام",
+            "subtitle": "إدارة أقسام الوكالة الحكومية",
+            "add": "إضافة قسم جديد",
+            "table": {
+                "name": "اسم القسم",
+                "description": "وصف القسم",
+                "searchPlaceholder": "ابحث في الأقسام...",
+                "filterBy": "تصفية حسب",
+                "allFields": "جميع الحقول",
+                "byName": "بالاسم",
+                "byDescription": "بالوصف",
+                "actions": "الإجراءات",
+                "noResults": "لا توجد نتائج تطابق بحثك",
+                "noData": "لا توجد أقسام لعرضها",
+                "resultsCount": "عرض {count} من أصل {total} قسم"
+            }
+        },
+        "services": {
+            "add": "إضافة خدمة جديدة",
+            "table": {
+                "name": "اسم الخدمة",
+                "description": "وصف الخدمة",
+                "searchPlaceholder": "ابحث في الخدمات...",
+                "filterBy": "تصفية حسب",
+                "allFields": "جميع الحقول",
+                "byName": "بالاسم",
+                "byDescription": "بالوصف",
+                "actions": "الإجراءات",
+                "noResults": "لا توجد نتائج تطابق بحثك",
+                "noData": "لا توجد أقسام لعرضها",
+                "resultsCount": "عرض {count} من أصل {total} قسم"
+            }
+        }
+    }
+}

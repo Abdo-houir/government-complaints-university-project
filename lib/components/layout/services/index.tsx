@@ -1,8 +1,16 @@
-import { sidebarLinks } from '@/config-nav';
-import { AppShell, AppShellHeader, AppShellMain, AppShellNavbar, AppShellSection, Box, Flex, Stack } from '@mantine/core';
+import { questLinks } from '@/config-nav';
+import { Link } from '@/i18n/navigation';
+import PATHS from '@/paths';
+import { AppShell, AppShellHeader, AppShellMain, AppShellNavbar, AppShellSection, Box, Button, Flex, Group, Stack } from '@mantine/core';
 import { ReactNode } from 'react';
+import { SiSimplelogin } from 'react-icons/si';
 import LocaleSelector from '../../action/LocaleSelector';
 import ThemeSelector from '../../action/ThemeSelector';
+import AuthBoundary from '../../auth/AuthBoundary';
+import ProfileAvatar from '../../auth/ProfileAvatar/ProfileAvatar';
+import ProfileAvatarSkeleton from '../../auth/ProfileAvatar/ProfileAvatarSkeleton';
+import ProfileMenu from '../../auth/ProfileMenu';
+import ProfileDropdown from '../../auth/profile/ProfileDropdown';
 import Logo from '../../identity/Logo';
 import SidebarNavigation from '../../navigation/SidebarNavigation/SidebarNavigation';
 import MyDrawer from '../drawers/MyDrawer';
@@ -44,7 +52,7 @@ const ServicesLayout = ({ children }: props) => {
                                         isSmall={false}
                                     />
                                     <SidebarNavigation
-                                        links={sidebarLinks}
+                                        links={questLinks}
                                         navLinkProps={{
                                             style: {
                                                 borderRadius: "var(--mantine-radius-sm)",
@@ -61,10 +69,46 @@ const ServicesLayout = ({ children }: props) => {
                         <ThemeSelector asIcon />
                         <LocaleSelector />
                     </Flex>
-                    <Logo
-                        width={50}
-                        height={50}
-                    />
+                    <Group>
+                        <Logo
+                            width={50}
+                            height={50}
+                            isLink
+                            href={PATHS.home.index}
+                        />
+                        <AuthBoundary
+                            authenticatedComponent={
+                                <ProfileMenu
+                                    target={
+                                        <ProfileAvatar
+                                            emailNameArrowFlexProps={{
+                                                visibleFrom: "md"
+                                            }}
+                                        />
+                                    }
+                                    content={<ProfileDropdown />}
+                                />
+                            }
+                            unauthenticatedComponent={
+                                <>
+                                    <Button
+                                        leftSection={<SiSimplelogin />}
+                                        size="sm"
+                                        radius="md"
+                                        variant="filled"
+                                        visibleFrom='xs'
+                                    >
+                                        <Link href={PATHS.auth.login}>
+                                            remove
+                                        </Link>
+                                    </Button>
+                                </>
+                            }
+                            loadingComponent={
+                                <ProfileAvatarSkeleton />
+                            }
+                        />
+                    </Group>
                 </Flex>
             </AppShellHeader>
             <AppShellNavbar
@@ -82,7 +126,7 @@ const ServicesLayout = ({ children }: props) => {
                 </AppShellSection>
                 <AppShellSection grow px={"5%"} h={"100%"}>
                     <SidebarNavigation
-                        links={sidebarLinks}
+                        links={questLinks}
 
                         navLinkProps={{
                             style: {

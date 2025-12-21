@@ -2,7 +2,7 @@ import { _Translator } from "next-intl";
 import { z } from "zod";
 
 // Allowed domains
-const allowedDomains = ["gmail.com", "hotmail.com", "mail.com"];
+const allowedDomains = ["gmail.com", "hotmail.com", "mail.com","gov.sy"];
 
 export function getAuthSchema(t: _Translator) {
   return z.object({

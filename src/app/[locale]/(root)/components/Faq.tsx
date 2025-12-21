@@ -1,13 +1,13 @@
 import { Accordion, AccordionControl, AccordionItem, AccordionPanel, Box, Container, Text } from "@mantine/core"
-import { useTranslations } from "next-intl"
+import { getTranslations } from "next-intl/server"
 import Image from "next/image"
 import { Fade, Zoom } from "react-awesome-reveal"
 import { BsFillQuestionOctagonFill } from "react-icons/bs"
 import { textIcon } from "../../../../../lib/context/mantine/styles"
 
 
-const Faq = () => {
-    const t = useTranslations("home.faq")
+const Faq = async () => {
+    const t = await getTranslations("home.faq")
 
     const faqs: FaqElement[] = t.raw("questions");
 
@@ -18,7 +18,7 @@ const Faq = () => {
                     <BsFillQuestionOctagonFill />
                     {t("title")}
                 </Text>
-                <Accordion  variant="separated" radius="md" chevronIconSize={20} mt={15}>
+                <Accordion  variant="separated" radius="md" chevronIconSize={20} mt={15} defaultValue={faqs[0].q}>
                     {
                         faqs.map((faq, index) => (
                             <AccordionItem

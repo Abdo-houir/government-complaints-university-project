@@ -1,0 +1,11 @@
+{
+  "apiMessages": {
+    "failed": "The operation failed",
+    "success": "The operation was successful",
+    "loginSuccess": "Login successful. Welcome back!",
+    "registerSuccess": "Registration successful. Your account has been created",
+    "wrong": "some thing went wrong",
+    "deleteTitle": "Remove element",
+    "deleteMessage": "Are you sure you want to remove this item? It cannot be undone later."
+  }
+}

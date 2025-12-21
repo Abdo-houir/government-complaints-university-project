@@ -1,0 +1,16 @@
+{
+    "admin": {
+        "agencies": {
+            "title": "Agencies page",
+            "subtitle": "Here you can view and manager agencies",
+            "add": "Add new agency",
+            "edit": "updating agency information",
+            "table": {
+                "name": "Agency name",
+                "location": "Agency location",
+                "manager": "Agency manager",
+                "status": "Agency status"
+            }
+        }
+    }
+}

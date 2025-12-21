@@ -1,12 +1,12 @@
 import { Box, Card, Flex, Grid, GridCol, Stack, Text } from "@mantine/core"
-import { useTranslations } from "next-intl"
+import { getTranslations } from "next-intl/server"
 import Image from "next/image"
 import { Slide, Zoom } from "react-awesome-reveal"
 
 
 
-const OurServices = () => {
-    const t = useTranslations("home.ourServices");
+const OurServices = async () => {
+    const t = await getTranslations("home.ourServices");
 
     const OUR_SERVICES: OurService[] = [
         {

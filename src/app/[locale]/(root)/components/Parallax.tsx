@@ -1,9 +1,9 @@
 import { Blockquote, Box, Container, Text } from "@mantine/core";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Fade } from "react-awesome-reveal";
 
-export default function ParallaxSection() {
-    const t = useTranslations("home.parallax")
+export default async function ParallaxSection() {
+    const t = await getTranslations("home.parallax")
     return (
         <Box className="parallax" style={{
             backgroundImage: "url('/bg/freeSyria.jpg')",

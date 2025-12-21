@@ -6,4 +6,9 @@ interface LinkType {
     children?: LinkType[]
 }
 
-type MethodType = 'get' | 'post' | 'put' | 'patch' | 'delete'
+type MethodType = 'get' | 'post' | 'put' | 'patch' | 'delete';
+
+interface ErrorMessageType {
+    message?: string;
+    error?:string;
+}

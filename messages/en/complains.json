@@ -1,0 +1,21 @@
+{
+    "complains": {
+        "status": {
+            "جديدة": "new",
+            "قيد المعالجة": "Under processing",
+            "بانتظار الرد من المواطن": "Awaiting citizen response",
+            "منجزة": "Completed",
+            "مرفوضة": "rejected",
+            "تم الرد من قبل المواطن": "The citizen responded"
+        },
+        "details": "complain details",
+        "sendDate": "submitting date",
+        "id": "Complaint number",
+        "attachments": "attachments",
+        "progress": "progress",
+        "citizen": "citizen",
+        "employee": "employee",
+        "you": "you",
+        "response": "response"
+    }
+}

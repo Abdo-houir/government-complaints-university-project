@@ -3,6 +3,28 @@
         "login": "تسجيل الدخول",
         "register": "أنشاء حساب",
         "next": "التالي",
-        "prev": "السابق"
+        "prev": "السابق",
+        "viewDetails": "عرض التفاصيل",
+        "submit": "ارسال",
+        "download": "تحميل",
+        "back": "رجوع",
+        "backToList": "العودة إلى القائمة",
+        "create": "انشاء",
+        "edit": "تعديل",
+        "delete": "ازالة",
+        "confirm": "تأكيد",
+        "cancel": "الغاء",
+        "clearFilters": "مسح الفلاتر",
+        "agency": {
+            "status": {
+                "active": "نشطة",
+                "inactive": "غير نشطة"
+            },
+            "workingHours": "ساعات العمل",
+            "services": "الخدمات"
+        },
+        "complain": {
+            "submit": "ارسال شكوى"
+        }
     }
 }

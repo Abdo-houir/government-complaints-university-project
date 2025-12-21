@@ -5,6 +5,10 @@
         "ourServices": "our services",
         "howWeWorks": "how we works",
         "aboutUs": "about us",
-        "faq": "Frequently Asked Questions"
+        "faq": "Frequently Asked Questions",
+        "agencies": "agencies",
+        "complains": "my complains",
+        "employees": "employees",
+        "sections": "sections"
     }
 }

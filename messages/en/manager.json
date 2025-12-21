@@ -1,0 +1,130 @@
+{
+    "manager": {
+        "employees": {
+            "title": "Employees Management",
+            "subtitle": "Manage government agency employees",
+            "add": "Add New Employee",
+            "table": {
+                "searchPlaceholder": "Search employees...",
+                "filterBy": "Filter by",
+                "filterByStatus": "Employment Status",
+                "allFields": "All fields",
+                "byName": "By name",
+                "byEmail": "By email",
+                "byNationalNumber": "By national number",
+                "allStatuses": "All statuses",
+                "active": "Active",
+                "inactive": "Inactive",
+                "actions": "Actions",
+                "noResults": "No results match your search",
+                "noData": "No employees to display",
+                "resultsCount": "Showing {count} of {total} employees",
+                "employee": "Employee",
+                "contact": "Contact Info",
+                "sectionAgency": "Section & Agency",
+                "status": "Status",
+                "permissions": "Permissions",
+                "canRespond": "Can Respond",
+                "cannotRespond": "Cannot Respond",
+                "canChangeStatus": "Can Change Status",
+                "cannotChangeStatus": "Cannot Change Status",
+                "viewId": "View ID Card"
+            },
+            "details": {
+                "status": {
+                    "active": "Active",
+                    "inactive": "Inactive"
+                },
+                "yearsOld": "years old",
+                "downloadProfile": "Download Profile",
+                "print": "Print",
+                "share": "Share",
+                "personalInfo": {
+                    "title": "Personal Information",
+                    "firstName": "First Name",
+                    "lastName": "Last Name",
+                    "middleName": "Middle Name",
+                    "nationalNumber": "National Number",
+                    "birthDate": "Birth Date",
+                    "age": "Age",
+                    "birthPlace": "Birth Place"
+                },
+                "contactInfo": {
+                    "title": "Contact Information",
+                    "email": "Email",
+                    "phone": "Phone Number",
+                    "location": "Current Location"
+                },
+                "employmentInfo": {
+                    "title": "Employment Information",
+                    "agency": "Agency",
+                    "section": "Section",
+                    "employmentDate": "Employment Date",
+                    "employmentDuration": "Service Duration"
+                },
+                "permissions": {
+                    "title": "Permissions & Privileges",
+                    "complaintPermissions": "Complaint Permissions",
+                    "canRespond": "Can Respond to Complaints",
+                    "canChangeStatus": "Can Change Complaint Status",
+                    "currentStatus": "Current Status",
+                    "active": "Active",
+                    "inactive": "Inactive"
+                },
+                "idCards": {
+                    "title": "ID Cards",
+                    "front": "Front Side",
+                    "back": "Back Side",
+                    "clickToView": "Click to view full image",
+                    "downloadFront": "Download Front",
+                    "downloadBack": "Download Back"
+                },
+                "years": "years",
+                "months": "months"
+            },
+            "editEmployee": "Edit Employee",
+            "addEmployee": "Add New Employee",
+            "personalInfo": "Personal Information",
+            "birthInfo": "Birth Information",
+            "contactInfo": "Contact Information",
+            "passwordSection": "Password",
+            "employmentPermissions": "Employment & Permissions",
+            "active": "Active",
+            "inactive": "Inactive"
+        },
+        "sections": {
+            "title": "Sections Management",
+            "subtitle": "Manage government agency sections",
+            "add": "Add New Section",
+            "table": {
+                "name": "section name",
+                "description": "section description",
+                "searchPlaceholder": "Search sections...",
+                "filterBy": "Filter by",
+                "allFields": "All fields",
+                "byName": "By name",
+                "byDescription": "By description",
+                "actions": "Actions",
+                "noResults": "No results match your search",
+                "noData": "No sections to display",
+                "resultsCount": "Showing {count} of {total} sections"
+            }
+        },
+        "services": {
+            "add": "Add New Service",
+            "table": {
+                "name": "service name",
+                "description": "service description",
+                "searchPlaceholder": "Search services...",
+                "filterBy": "Filter by",
+                "allFields": "All fields",
+                "byName": "By name",
+                "byDescription": "By description",
+                "actions": "Actions",
+                "noResults": "No results match your search",
+                "noData": "No services to display",
+                "resultsCount": "Showing {count} of {total} services"
+            }
+        }
+    }
+}

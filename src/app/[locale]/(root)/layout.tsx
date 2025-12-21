@@ -1,4 +1,3 @@
-import { routing } from '@/i18n/routing';
 import { Box } from '@mantine/core';
 import "dayjs/locale/ar";
 import "dayjs/locale/en";
@@ -16,9 +15,7 @@ type Props = {
 
 
 const RootLayout = async ({ children, params }: Props) => {
-  const {locale} = await params
-
-
+  const { locale } = await params
   return (
     <AppProvider locale={locale}>
       <AltMainLayout>
@@ -32,7 +29,4 @@ const RootLayout = async ({ children, params }: Props) => {
 }
 
 export default RootLayout;
-//! SSG
-export const generateStaticParams = () => {
-  return routing.locales.map((locale) => ({ locale }))
-}
+

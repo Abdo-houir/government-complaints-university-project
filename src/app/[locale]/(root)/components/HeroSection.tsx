@@ -1,15 +1,15 @@
 import { Link } from "@/i18n/navigation";
 import PATHS from "@/paths";
 import { Button, Container, Flex, Group, Stack, Text } from "@mantine/core";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Fade, Zoom } from 'react-awesome-reveal';
 import { BsLaptopFill, BsPatchQuestionFill } from "react-icons/bs";
 import Logo from "../../../../../lib/components/identity/Logo";
 
 
-const HeroSection = () => {
-    const t = useTranslations("home.hero");
-    const tNav = useTranslations("navigation");
+const HeroSection = async () => {
+    const t = await getTranslations("home.hero");
+    const tNav = await getTranslations("navigation");
     return (
         <>
             <Container

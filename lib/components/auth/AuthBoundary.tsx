@@ -8,7 +8,7 @@ type Props = {
     unauthenticatedComponent: ReactNode,
 }
 
-const AuthSwitcher = ({ authenticatedComponent, unauthenticatedComponent, loadingComponent }: Props) => {
+const AuthBoundary = ({ authenticatedComponent, unauthenticatedComponent, loadingComponent }: Props) => {
     const { isLoading, status } = useAuthContext();
 
     if (isLoading) return loadingComponent
@@ -16,4 +16,4 @@ const AuthSwitcher = ({ authenticatedComponent, unauthenticatedComponent, loadin
     else if (status === "unauthenticated") return unauthenticatedComponent
 }
 
-export default AuthSwitcher
+export default AuthBoundary

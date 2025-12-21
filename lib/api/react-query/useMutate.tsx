@@ -1,6 +1,6 @@
 import { notifications } from "@mantine/notifications";
 import { InvalidateQueryFilters, useQueryClient } from "@tanstack/react-query";
-import { AxiosError } from "axios";
+import { useTranslations } from "next-intl";
 import { handleErrorMessageDecider } from "../handleErrorMessageDecider";
 import useAxiosMutation from "./useAxiosMutation";
 
@@ -23,6 +23,8 @@ export const useMutate = (
             headers: { "Content-Type": "multipart/form-data" },
         } : {}
     );
+
+    const t = useTranslations("apiMessages");
 
     return {
         mutate: (input: unknown, withNotification: boolean = true) => {
@@ -67,7 +69,7 @@ export const useMutate = (
                             position: "top-right",
                             draggable: true,
                             title: 'Error',
-                            message: handleErrorMessageDecider(error as Error | AxiosError),
+                            message: handleErrorMessageDecider(error,t),
                             autoClose: false,
                             withCloseButton: true,
                             loading: false
