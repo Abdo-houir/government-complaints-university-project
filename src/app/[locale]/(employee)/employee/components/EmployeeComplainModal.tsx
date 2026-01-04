@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import { FaCalendar } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
 import useAxiosQuery from "../../../../../../lib/api/react-query/useAxiosQuery";
+import { useMutate } from "../../../../../../lib/api/react-query/useMutate";
 import endpoints from "../../../../../../lib/api/setup/ebdpoints";
 import useBoolean from "../../../../../../lib/hooks/useBoolean";
 import { getComplainStatusColor } from "./EmployeeComplainCard";
@@ -20,7 +21,24 @@ const EmployeeComplainModal = ({ complaint }: Props) => {
     const isOpen = useBoolean({ initialState: false });
     const complainsRequest = useAxiosQuery(endpoints.employee.getComplaintRespons(complaint.id), isOpen.value);
     const tComplains = useTranslations("complains");
+    const TApi = useTranslations("apiMessages");
 
+    const { loading, mutate } = useMutate(
+        endpoints.employee.updateComplaintsStatus(complaint.id),
+        [endpoints.employee.employeeComplaints(1)],
+        "post",
+        TApi("success")
+    );
+
+
+    const handleSubmit = (newStatus: string) => {
+        if (!loading) {
+            const apiData = {
+                Status: newStatus
+            }
+            mutate(apiData)
+        }
+    }
 
     return (
         <>
@@ -126,12 +144,14 @@ const EmployeeComplainModal = ({ complaint }: Props) => {
                                     animated
                                 />
                                 <Group justify="space-between" mt={4}>
-                                    {['جديدة', 'قيد المعالجة', 'بانتظار الرد من المواطن', 'منجزة'].map((status) => (
+                                    {['بانتظار الرد من المواطن', 'جديدة', 'قيد المعالجة', 'مرفوضة', 'منجزة', 'تم الرد من قبل المواطن'].map((status) => (
                                         <Text
                                             key={status}
                                             size="xs"
                                             c={complaint.status === status ? getComplainStatusColor(status) : 'dimmed'}
                                             fw={complaint.status === status ? 600 : 400}
+                                            style={{ cursor: "pointer" }}
+                                            onClick={() => handleSubmit(status)}
                                         >
                                             {tComplains(`status.${status}`)}
                                         </Text>

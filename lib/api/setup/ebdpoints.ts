@@ -52,6 +52,7 @@ const endpoints = {
     employee: {
         employeeComplaints: (id: number) => `/api/employeeComplaints/${id}`,
         getComplaintRespons: (id: number | string) => `/api/getComplaintRespons/${id}`,
+        updateComplaintsStatus: (id: number | string) => `/api/updateComplaintsStatus/${id}`,
     }
 };
 
